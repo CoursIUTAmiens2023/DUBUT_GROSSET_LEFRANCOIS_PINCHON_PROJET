@@ -20,7 +20,7 @@ namespace ProjetForm
             groupBoxGameModeInput2.Visible = false;
         }
 
-        private void radioButtonGameMode2_CheckedChanged(object p_p_Sender, EventArgs p_EventArgs)
+        private void radioButtonGameMode2_CheckedChanged(object p_Sender, EventArgs p_EventArgs)
         {
             // Changement d'état des radioButtons
             radioButtonGameMode1.Checked = false;

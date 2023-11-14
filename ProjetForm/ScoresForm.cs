@@ -10,7 +10,7 @@ namespace ProjetForm
             InitializeComponent();
         }
 
-        private void btnGameModeBack_Click(object p_Sender, EventArgs v_EventArgs)
+        private void btnGameModeBack_Click(object p_Sender, EventArgs p_EventArgs)
         {
             // Fermeture de la page
             Close();

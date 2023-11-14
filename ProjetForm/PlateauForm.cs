@@ -36,7 +36,7 @@ namespace ProjetForm
             return v_PBBoxPawn;
         }
 
-        private void buttonColonne_Click(object p_Sender, EventArgs v_EventArgs)
+        private void buttonColonne_Click(object p_Sender, EventArgs p_EventArgs)
         {
             Point v_PawnPosition;  // Position du pion sur le palteau de jeu
             PictureBox v_PlayerPawn; // Pion a ajouté
@@ -87,7 +87,7 @@ namespace ProjetForm
             plateauJeu.Controls.Add(v_PlayerPawn, v_PawnPosition.X, v_PawnPosition.Y);
         }
 
-        private void btnPlateauAbandon_Click(object p_Sender, EventArgs v_EventArgs)
+        private void btnPlateauAbandon_Click(object p_Sender, EventArgs p_EventArgs)
         {
             // Affichage de la group Box pour montrer le gagnant
             groupBoxWinner.Visible = true;
@@ -99,7 +99,7 @@ namespace ProjetForm
             btnPlateauAbandon.Enabled = false;
         }
 
-        private void btnWinnerHome_Click(object p_Sender, EventArgs v_EventArgs)
+        private void btnWinnerHome_Click(object p_Sender, EventArgs p_EventArgs)
         {
             // Fermeture de la fenêtre
             Close();
@@ -109,7 +109,7 @@ namespace ProjetForm
             v_HomeForm.ShowDialog();
         }
 
-        private void btnWinnerQuitter_Click(object p_Sender, EventArgs v_EventArgs)
+        private void btnWinnerQuitter_Click(object p_Sender, EventArgs p_EventArgs)
         {
             // Fermeture de l'application
             Application.Exit();
