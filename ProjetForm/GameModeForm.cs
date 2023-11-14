@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProjetForm
@@ -17,7 +10,7 @@ namespace ProjetForm
             InitializeComponent();
         }
 
-        private void radioButtonGameMode1_CheckedChanged(object sender, EventArgs e)
+        private void radioButtonGameMode1_CheckedChanged(object p_Sender, EventArgs p_EventArgs)
         {
             // Changement d'état des radioButtons
             radioButtonGameMode2.Checked = false;
@@ -27,7 +20,7 @@ namespace ProjetForm
             groupBoxGameModeInput2.Visible = false;
         }
 
-        private void radioButtonGameMode2_CheckedChanged(object sender, EventArgs e)
+        private void radioButtonGameMode2_CheckedChanged(object p_p_Sender, EventArgs p_EventArgs)
         {
             // Changement d'état des radioButtons
             radioButtonGameMode1.Checked = false;
@@ -37,60 +30,60 @@ namespace ProjetForm
             groupBoxGameModeInput2.Visible = true;
         }
 
-        private void btnGameModeBack_Click(object sender, EventArgs e)
+        private void btnGameModeBack_Click(object p_Sender, EventArgs p_EventArgs)
         {
             // Ferme la page
             Close();
 
             // Réouvre la page Home
-            HomeForm homeForm = new HomeForm();
-            homeForm.ShowDialog();
+            HomeForm v_HomeForm = new HomeForm();
+            v_HomeForm.ShowDialog();
         }
 
-        private void inputJoueur1_Enter(object sender, EventArgs e)
+        private void inputJoueur1_Enter(object p_Sender, EventArgs p_EventArgs)
         {
             inputJoueur1.Clear();
         }
 
-        private void inputJoueur2_Enter(object sender, EventArgs e)
+        private void inputJoueur2_Enter(object p_Sender, EventArgs p_EventArgs)
         {
             inputJoueur2.Clear();
         }
 
-        private void btnJoueurInput_Enter(object sender, EventArgs e)
+        private void btnJoueurInput_Enter(object p_Sender, EventArgs p_EventArgs)
         {
             inputJoueur.Clear();
         }
 
-        private void radioButtonModeEasy_CheckedChanged(object sender, EventArgs e)
+        private void radioButtonModeEasy_CheckedChanged(object p_Sender, EventArgs p_EventArgs)
         {
             // Changement d'état des radioButtons en fonction de celui sélectionné
             radioButtonModeNormal.Checked = false;
             radioButtonModeHard.Checked = false;
         }
 
-        private void radioButtonModeNormal_CheckedChanged(object sender, EventArgs e)
+        private void radioButtonModeNormal_CheckedChanged(object p_Sender, EventArgs p_EventArgs)
         {
             // Changement d'état des radioButtons en fonction de celui sélectionné
             radioButtonModeEasy.Checked = false;
             radioButtonModeHard.Checked = false;
         }
 
-        private void radioButtonModeHard_CheckedChanged(object sender, EventArgs e)
+        private void radioButtonModeHard_CheckedChanged(object p_Sender, EventArgs p_EventArgs)
         {
             // Changement d'état des radioButtons en fonction de celui sélectionné
             radioButtonModeEasy.Checked = false;
             radioButtonModeNormal.Checked = false;
         }
 
-        private void btnGameModePlay_Click(object sender, EventArgs e)
+        private void btnGameModePlay_Click(object p_Sender, EventArgs p_EventArgs)
         {
             // Fermeture de la page
             Close();
 
             // Ouverture du plateau de jeu
-            PlateauForm plateauForm = new PlateauForm();
-            plateauForm.ShowDialog();
+            PlateauForm v_PlateauForm = new PlateauForm();
+            v_PlateauForm.ShowDialog();
         }
     }
 }

@@ -1,12 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProjetForm
@@ -18,96 +13,103 @@ namespace ProjetForm
             InitializeComponent();
         }
 
-        private PictureBox creationPions(Color couleur)
+        private PictureBox creationPions(Color p_Color)
         {
-            PictureBox PBPion = new PictureBox();
+            PictureBox v_PBBoxPawn = new PictureBox();
 
             // Création d'une bitmap
-            Bitmap bm = new Bitmap(32, 32);
+            Bitmap v_Bitmap = new Bitmap(32, 32);
 
             // Création d'un objet graphics pour dessiner dessus
-            Graphics g = Graphics.FromImage(bm);
-;
+            Graphics v_Graphics = Graphics.FromImage(v_Bitmap);
+            ;
             // Ecriture sur l'objet
-            LinearGradientBrush b = new LinearGradientBrush(new Rectangle(0, 0, 40, 30), couleur, Color.White, -45, false);
+            LinearGradientBrush v_LinearGradientBrush = new LinearGradientBrush(new Rectangle(0, 0, 40, 30), p_Color, Color.White, -45, false);
 
             // Remplissage
-            g.FillEllipse(b, 0, 0, bm.Size.Width, bm.Size.Height);
+            v_Graphics.FillEllipse(v_LinearGradientBrush, 0, 0, v_Bitmap.Size.Width, v_Bitmap.Size.Height);
 
             // Attribution
-            PBPion.Image = bm;
-            PBPion.SizeMode = PictureBoxSizeMode.StretchImage;
+            v_PBBoxPawn.Image = v_Bitmap;
+            v_PBBoxPawn.SizeMode = PictureBoxSizeMode.StretchImage;
 
-            return PBPion;
+            return v_PBBoxPawn;
         }
 
-        private void buttonColonne_Click(object sender, EventArgs e)
+        private void buttonColonne_Click(object p_Sender, EventArgs v_EventArgs)
         {
-            Point positionPionPlateau;  // Position du pion sur le palteau de jeu
-            PictureBox pionJoueur; // Pion a ajouté
+            Point v_PawnPosition;  // Position du pion sur le palteau de jeu
+            PictureBox v_PlayerPawn; // Pion a ajouté
 
-            int ColonneJouee;
-
-            switch (((Button)sender).Name.ToString())
+            int v_ColumnPlayed;
+            switch (((Button)p_Sender).Name.ToString())
             {
                 case "btnCol1":
-                    ColonneJouee = 1;
+                    v_ColumnPlayed = 1;
                     break;
+
                 case "btnCol2":
-                    ColonneJouee = 2;
+                    v_ColumnPlayed = 2;
                     break;
+
                 case "btnCol3":
-                    ColonneJouee = 3;
+                    v_ColumnPlayed = 3;
                     break;
+
                 case "btnCol4":
-                    ColonneJouee = 4;
+                    v_ColumnPlayed = 4;
                     break;
+
                 case "btnCol5":
-                    ColonneJouee = 5;
+                    v_ColumnPlayed = 5;
                     break;
+
                 case "btnCol6":
-                    ColonneJouee = 6;
+                    v_ColumnPlayed = 6;
                     break;
+
                 case "btnCol7":
-                    ColonneJouee = 7;
+                    v_ColumnPlayed = 7;
                     break;
+
                 default:
+                    //TODO should resolv this error
                     throw new Exception("Bouton inexistant");
             }
 
             // Crée un nouveau pion à ajouter
-            pionJoueur = creationPions(Color.Red);
+            v_PlayerPawn = creationPions(Color.Red);
 
             // Calcule des position dans le plateau
-            positionPionPlateau = new Point(ColonneJouee - 1, 0);
+            v_PawnPosition = new Point(v_ColumnPlayed - 1, 0);
 
             // Ajout du pion sur le plateau
-            plateauJeu.Controls.Add(pionJoueur, positionPionPlateau.X, positionPionPlateau.Y);
+            plateauJeu.Controls.Add(v_PlayerPawn, v_PawnPosition.X, v_PawnPosition.Y);
         }
 
-        private void btnPlateauAbandon_Click(object sender, EventArgs e)
+        private void btnPlateauAbandon_Click(object p_Sender, EventArgs v_EventArgs)
         {
             // Affichage de la group Box pour montrer le gagnant
             groupBoxWinner.Visible = true;
 
             // Desactivation des boutons
-            List<Button> btnColList = new List<Button> {btnCol1, btnCol2 , btnCol3 , btnCol4 , btnCol5 , btnCol6 , btnCol7};
+            List<Button> v_BtnColList = new List<Button> { btnCol1, btnCol2, btnCol3, btnCol4, btnCol5, btnCol6, btnCol7 };
 
-            btnColList.ForEach((btn) => btn.Enabled = false);
+            v_BtnColList.ForEach((btn) => btn.Enabled = false);
             btnPlateauAbandon.Enabled = false;
         }
 
-        private void btnWinnerHome_Click(object sender, EventArgs e)
+        private void btnWinnerHome_Click(object p_Sender, EventArgs v_EventArgs)
         {
             // Fermeture de la fenêtre
             Close();
 
             // Réouverture de la fenêtre du menu principal
-            HomeForm homeForm = new HomeForm();
-            homeForm.ShowDialog();
+            HomeForm v_HomeForm = new HomeForm();
+            v_HomeForm.ShowDialog();
         }
 
-        private void btnWinnerQuitter_Click(object sender, EventArgs e)
+        private void btnWinnerQuitter_Click(object p_Sender, EventArgs v_EventArgs)
         {
             // Fermeture de l'application
             Application.Exit();

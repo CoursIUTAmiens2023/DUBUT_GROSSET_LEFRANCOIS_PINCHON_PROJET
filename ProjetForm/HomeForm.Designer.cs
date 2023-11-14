@@ -10,14 +10,14 @@
         /// <summary>
         /// Nettoyage des ressources utilisées.
         /// </summary>
-        /// <param name="disposing">true si les ressources managées doivent être supprimées ; sinon, false.</param>
-        protected override void Dispose(bool disposing)
+        /// <param name="p_Disposing">true si les ressources managées doivent être supprimées ; sinon, false.</param>
+        protected override void Dispose(bool p_Disposing)
         {
-            if (disposing && (components != null))
+            if (p_Disposing && (components != null))
             {
                 components.Dispose();
             }
-            base.Dispose(disposing);
+            base.Dispose(p_Disposing);
         }
 
         #region Code généré par le Concepteur Windows Form
