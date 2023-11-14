@@ -10,7 +10,7 @@ namespace ProjetForm
             InitializeComponent();
         }
 
-        private void radioButtonGameMode1_CheckedChanged(object p_Sender, EventArgs p_EventArgs)
+        private void radioButtonPlayerVsPlayer_CheckedChanged(object p_Sender, EventArgs p_EventArgs)
         {
             // Changement d'état des radioButtons
             radioButtonGameMode2.Checked = false;
@@ -20,7 +20,7 @@ namespace ProjetForm
             groupBoxGameModeInput2.Visible = false;
         }
 
-        private void radioButtonGameMode2_CheckedChanged(object p_Sender, EventArgs p_EventArgs)
+        private void radioButtonPlayerVsIA_CheckedChanged(object p_Sender, EventArgs p_EventArgs)
         {
             // Changement d'état des radioButtons
             radioButtonGameMode1.Checked = false;

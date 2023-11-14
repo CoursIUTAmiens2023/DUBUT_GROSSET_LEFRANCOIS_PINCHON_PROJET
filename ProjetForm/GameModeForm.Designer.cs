@@ -71,7 +71,7 @@
             this.radioButtonGameMode1.TabStop = true;
             this.radioButtonGameMode1.Text = "Joueur VS Joueur";
             this.radioButtonGameMode1.UseVisualStyleBackColor = true;
-            this.radioButtonGameMode1.CheckedChanged += new System.EventHandler(this.radioButtonGameMode1_CheckedChanged);
+            this.radioButtonGameMode1.CheckedChanged += new System.EventHandler(this.radioButtonPlayerVsPlayer_CheckedChanged);
             // 
             // radioButtonGameMode2
             // 
@@ -83,7 +83,7 @@
             this.radioButtonGameMode2.TabIndex = 3;
             this.radioButtonGameMode2.Text = "Joueur VS IA";
             this.radioButtonGameMode2.UseVisualStyleBackColor = true;
-            this.radioButtonGameMode2.CheckedChanged += new System.EventHandler(this.radioButtonGameMode2_CheckedChanged);
+            this.radioButtonGameMode2.CheckedChanged += new System.EventHandler(this.radioButtonPlayerVsIA_CheckedChanged);
             // 
             // btnGameModeBack
             // 
