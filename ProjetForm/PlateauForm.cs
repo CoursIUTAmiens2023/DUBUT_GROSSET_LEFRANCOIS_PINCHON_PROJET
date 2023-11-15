@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
@@ -8,38 +9,67 @@ namespace ProjetForm
 {
     public partial class PlateauForm : Form
     {
-        public PlateauForm()
+        private Puissance4 puissance4;
+
+        public PlateauForm(Puissance4 p_Puissance4)
         {
             InitializeComponent();
+            this.puissance4 = p_Puissance4;
+            lblPlayerToPlay.Text = p_Puissance4.isRedPlayerToPlay() ? p_Puissance4.getJoueur1() : p_Puissance4.getJoueur2();
         }
 
-        private PictureBox creationPions(Color p_Color)
+        /// <summary>
+        /// Ajout un pion sur le plateau
+        /// </summary>
+        /// <param name="v_PlayerPawn">Le pion du joueur</param>
+        /// <param name="v_PawnPosition">La position du pion</param>
+        private void AddPawnOnBoard(PictureBox v_PlayerPawn, Point v_PawnPosition)
         {
-            PictureBox v_PBBoxPawn = new PictureBox();
+            // Ajout du pion sur le plateau
+            plateauJeu.Controls.Add(v_PlayerPawn, v_PawnPosition.X, v_PawnPosition.Y);
+            puissance4.setOnBoard(v_PawnPosition.Y, v_PawnPosition.X, true);
+            if (puissance4.isRedPlayerToPlay())
+            {
+                puissance4.setRedPawnOnBoard(v_PawnPosition.Y, v_PawnPosition.X, true);
+                puissance4.setRedPlayerToPlay(false);
+            }
+            else
+            {
+                puissance4.setYellowPawnOnBoard(v_PawnPosition.Y, v_PawnPosition.X, true);
+                puissance4.setRedPlayerToPlay(true);
+            }
+        }
 
-            // Création d'une bitmap
-            Bitmap v_Bitmap = new Bitmap(32, 32);
+        /// <summary>
+        /// Fait jouer l'IA
+        /// </summary>
+        private void aiPlay()
+        {
+            // Faire jouer l'IA.
+        }
 
-            // Création d'un objet graphics pour dessiner dessus
-            Graphics v_Graphics = Graphics.FromImage(v_Bitmap);
-            ;
-            // Ecriture sur l'objet
-            LinearGradientBrush v_LinearGradientBrush = new LinearGradientBrush(new Rectangle(0, 0, 40, 30), p_Color, Color.White, -45, false);
+        /// <summary>
+        /// Active l'écran de fin
+        /// </summary>
+        /// <param name="p_PseudoPlayerWinner">Le pseudo du joueur qui a gagné</param>
+        private void EnableEndScreen(String p_PseudoPlayerWinner)
+        {
+            // Affichage de la group Box pour montrer le gagnant
+            groupBoxWinner.Visible = true;
 
-            // Remplissage
-            v_Graphics.FillEllipse(v_LinearGradientBrush, 0, 0, v_Bitmap.Size.Width, v_Bitmap.Size.Height);
+            // Desactivation des boutons
+            List<Button> v_BtnColList = new List<Button> { btnCol1, btnCol2, btnCol3, btnCol4, btnCol5, btnCol6, btnCol7 };
 
-            // Attribution
-            v_PBBoxPawn.Image = v_Bitmap;
-            v_PBBoxPawn.SizeMode = PictureBoxSizeMode.StretchImage;
+            v_BtnColList.ForEach((btn) => btn.Enabled = false);
+            btnPlateauAbandon.Enabled = false;
 
-            return v_PBBoxPawn;
+            lblWinner.Text = p_PseudoPlayerWinner + " a gagné !";
         }
 
         private void buttonColonne_Click(object p_Sender, EventArgs p_EventArgs)
         {
             Point v_PawnPosition;  // Position du pion sur le palteau de jeu
-            PictureBox v_PlayerPawn; // Pion a ajouté
+            PictureBox v_PlayerPawn; // Pion a ajouter
 
             int v_ColumnPlayed;
             switch (((Button)p_Sender).Name.ToString())
@@ -78,31 +108,39 @@ namespace ProjetForm
             }
 
             // Crée un nouveau pion à ajouter
-            v_PlayerPawn = creationPions(Color.Red);
+            v_PlayerPawn = Puissance4Manager.CreatePawn(puissance4);
 
             // Calcule des position dans le plateau
-            v_PawnPosition = new Point(v_ColumnPlayed - 1, 0);
+            v_PawnPosition = Puissance4Manager.GetPawnPosition(puissance4, v_ColumnPlayed);
 
-            // Ajout du pion sur le plateau
-            plateauJeu.Controls.Add(v_PlayerPawn, v_PawnPosition.X, v_PawnPosition.Y);
+            if(v_PawnPosition.X != -1)
+            {
+                AddPawnOnBoard(v_PlayerPawn, v_PawnPosition);   
+            }
+
+            if(Puissance4Manager.CheckIfWin(puissance4))
+            {
+                String v_PseudoPlayerWinner = puissance4.isRedPlayerToPlay() ? puissance4.getJoueur2() : puissance4.getJoueur1();
+                EnableEndScreen(v_PseudoPlayerWinner);
+            }
+
+            lblPlayerToPlay.Text = puissance4.isRedPlayerToPlay() ? puissance4.getJoueur1() : puissance4.getJoueur2();
+
+            if(!puissance4.isPlayerVSPlayerMode())
+            {
+                aiPlay();
+            }
         }
 
         private void btnPlateauAbandon_Click(object p_Sender, EventArgs p_EventArgs)
         {
-            // Affichage de la group Box pour montrer le gagnant
-            groupBoxWinner.Visible = true;
-
-            // Desactivation des boutons
-            List<Button> v_BtnColList = new List<Button> { btnCol1, btnCol2, btnCol3, btnCol4, btnCol5, btnCol6, btnCol7 };
-
-            v_BtnColList.ForEach((btn) => btn.Enabled = false);
-            btnPlateauAbandon.Enabled = false;
+            String playerWinner = puissance4.isRedPlayerToPlay() ? puissance4.getJoueur2() : puissance4.getJoueur1();
+            EnableEndScreen(playerWinner);
         }
 
         private void btnWinnerHome_Click(object p_Sender, EventArgs p_EventArgs)
         {
-            // Fermeture de la fenêtre
-            Close();
+            Hide();
 
             // Réouverture de la fenêtre du menu principal
             HomeForm v_HomeForm = new HomeForm();
@@ -113,6 +151,16 @@ namespace ProjetForm
         {
             // Fermeture de l'application
             Application.Exit();
+        }
+
+        private void btnWinnerPlay_Click(object sender, EventArgs e)
+        {
+            Hide();
+
+            // Ouverture du plateau de jeu
+            Puissance4 newPuissance4 = new Puissance4(puissance4.getJoueur1(), puissance4.getJoueur2(), puissance4.isPlayerVSPlayerMode()); ;
+            PlateauForm v_PlateauForm = new PlateauForm(newPuissance4);
+            v_PlateauForm.ShowDialog();
         }
     }
 }

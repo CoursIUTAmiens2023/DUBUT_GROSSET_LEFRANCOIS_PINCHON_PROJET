@@ -66,6 +66,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Puissance4.cs" />
+    <Compile Include="Puissance4Manager.cs" />
     <Compile Include="ScoresForm.cs">
       <SubType>Form</SubType>
     </Compile>
