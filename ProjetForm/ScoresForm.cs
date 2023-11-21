@@ -12,8 +12,8 @@ namespace ProjetForm
 
         private void btnGameModeBack_Click(object p_Sender, EventArgs p_EventArgs)
         {
-            // Fermeture de la page
-            Close();
+            
+            Hide();
 
             // Ouverture de la page Home
             HomeForm v_HomeForm = new HomeForm();
