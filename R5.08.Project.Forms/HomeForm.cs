@@ -1,4 +1,7 @@
-﻿namespace ProjetForm
+﻿using System;
+using System.Windows.Forms;
+
+namespace ProjetForm
 {
     public partial class HomeForm : Form
     {

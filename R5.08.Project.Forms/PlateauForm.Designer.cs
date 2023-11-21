@@ -32,8 +32,8 @@
             this.lblPlateauTimer = new System.Windows.Forms.Label();
             this.btnPlateauAbandon = new System.Windows.Forms.Button();
             this.lblPlateauTour = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblToPlay = new System.Windows.Forms.Label();
+            this.lblPlayerToPlay = new System.Windows.Forms.Label();
             this.btnCol1 = new System.Windows.Forms.Button();
             this.btnCol2 = new System.Windows.Forms.Button();
             this.btnCol3 = new System.Windows.Forms.Button();
@@ -61,8 +61,8 @@
             this.plateauJeu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.71951F));
             this.plateauJeu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.63415F));
             this.plateauJeu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.02439F));
-            this.plateauJeu.Location = new System.Drawing.Point(444, 129);
-            this.plateauJeu.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.plateauJeu.Location = new System.Drawing.Point(508, 138);
+            this.plateauJeu.Margin = new System.Windows.Forms.Padding(4);
             this.plateauJeu.Name = "plateauJeu";
             this.plateauJeu.RowCount = 6;
             this.plateauJeu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
@@ -71,17 +71,17 @@
             this.plateauJeu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.plateauJeu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.plateauJeu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.plateauJeu.Size = new System.Drawing.Size(385, 338);
+            this.plateauJeu.Size = new System.Drawing.Size(440, 361);
             this.plateauJeu.TabIndex = 3;
             // 
             // lblPlateauTimer
             // 
             this.lblPlateauTimer.AutoSize = true;
-            this.lblPlateauTimer.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblPlateauTimer.Location = new System.Drawing.Point(8, 10);
+            this.lblPlateauTimer.Font = new System.Drawing.Font("Verdana", 15F);
+            this.lblPlateauTimer.Location = new System.Drawing.Point(9, 11);
             this.lblPlateauTimer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPlateauTimer.Name = "lblPlateauTimer";
-            this.lblPlateauTimer.Size = new System.Drawing.Size(142, 25);
+            this.lblPlateauTimer.Size = new System.Drawing.Size(176, 31);
             this.lblPlateauTimer.TabIndex = 4;
             this.lblPlateauTimer.Text = "1 min 30 sec";
             // 
@@ -92,13 +92,13 @@
             this.btnPlateauAbandon.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPlateauAbandon.FlatAppearance.BorderSize = 0;
             this.btnPlateauAbandon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPlateauAbandon.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnPlateauAbandon.Font = new System.Drawing.Font("Verdana", 8F);
             this.btnPlateauAbandon.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnPlateauAbandon.Location = new System.Drawing.Point(14, 487);
-            this.btnPlateauAbandon.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnPlateauAbandon.Location = new System.Drawing.Point(16, 519);
+            this.btnPlateauAbandon.Margin = new System.Windows.Forms.Padding(4);
             this.btnPlateauAbandon.Name = "btnPlateauAbandon";
-            this.btnPlateauAbandon.Padding = new System.Windows.Forms.Padding(18, 0, 18, 0);
-            this.btnPlateauAbandon.Size = new System.Drawing.Size(135, 31);
+            this.btnPlateauAbandon.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
+            this.btnPlateauAbandon.Size = new System.Drawing.Size(155, 33);
             this.btnPlateauAbandon.TabIndex = 6;
             this.btnPlateauAbandon.Text = "Abandonner";
             this.btnPlateauAbandon.UseVisualStyleBackColor = false;
@@ -107,42 +107,42 @@
             // lblPlateauTour
             // 
             this.lblPlateauTour.AutoSize = true;
-            this.lblPlateauTour.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblPlateauTour.Location = new System.Drawing.Point(68, 171);
+            this.lblPlateauTour.Font = new System.Drawing.Font("Verdana", 15F);
+            this.lblPlateauTour.Location = new System.Drawing.Point(77, 182);
             this.lblPlateauTour.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPlateauTour.Name = "lblPlateauTour";
-            this.lblPlateauTour.Size = new System.Drawing.Size(126, 25);
+            this.lblPlateauTour.Size = new System.Drawing.Size(157, 31);
             this.lblPlateauTour.TabIndex = 7;
             this.lblPlateauTour.Text = "Au tour de ";
             // 
-            // label1
+            // lblToPlay
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(68, 279);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(96, 25);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "de jouer";
+            this.lblToPlay.AutoSize = true;
+            this.lblToPlay.Font = new System.Drawing.Font("Verdana", 15F);
+            this.lblToPlay.Location = new System.Drawing.Point(77, 298);
+            this.lblToPlay.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblToPlay.Name = "lblToPlay";
+            this.lblToPlay.Size = new System.Drawing.Size(120, 31);
+            this.lblToPlay.TabIndex = 8;
+            this.lblToPlay.Text = "de jouer";
             // 
-            // label2
+            // lblPlayerToPlay
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Verdana", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(112, 220);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(150, 32);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "JOUEUR 1";
+            this.lblPlayerToPlay.AutoSize = true;
+            this.lblPlayerToPlay.Font = new System.Drawing.Font("Verdana", 20F);
+            this.lblPlayerToPlay.Location = new System.Drawing.Point(128, 235);
+            this.lblPlayerToPlay.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPlayerToPlay.Name = "lblPlayerToPlay";
+            this.lblPlayerToPlay.Size = new System.Drawing.Size(190, 41);
+            this.lblPlayerToPlay.TabIndex = 9;
+            this.lblPlayerToPlay.Text = "JOUEUR 1";
             // 
             // btnCol1
             // 
-            this.btnCol1.Location = new System.Drawing.Point(447, 75);
-            this.btnCol1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnCol1.Location = new System.Drawing.Point(511, 80);
+            this.btnCol1.Margin = new System.Windows.Forms.Padding(4);
             this.btnCol1.Name = "btnCol1";
-            this.btnCol1.Size = new System.Drawing.Size(54, 47);
+            this.btnCol1.Size = new System.Drawing.Size(61, 50);
             this.btnCol1.TabIndex = 10;
             this.btnCol1.Text = "v";
             this.btnCol1.UseVisualStyleBackColor = true;
@@ -150,10 +150,10 @@
             // 
             // btnCol2
             // 
-            this.btnCol2.Location = new System.Drawing.Point(502, 75);
-            this.btnCol2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnCol2.Location = new System.Drawing.Point(573, 80);
+            this.btnCol2.Margin = new System.Windows.Forms.Padding(4);
             this.btnCol2.Name = "btnCol2";
-            this.btnCol2.Size = new System.Drawing.Size(54, 47);
+            this.btnCol2.Size = new System.Drawing.Size(61, 50);
             this.btnCol2.TabIndex = 11;
             this.btnCol2.Text = "v";
             this.btnCol2.UseVisualStyleBackColor = true;
@@ -161,10 +161,10 @@
             // 
             // btnCol3
             // 
-            this.btnCol3.Location = new System.Drawing.Point(555, 75);
-            this.btnCol3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnCol3.Location = new System.Drawing.Point(635, 80);
+            this.btnCol3.Margin = new System.Windows.Forms.Padding(4);
             this.btnCol3.Name = "btnCol3";
-            this.btnCol3.Size = new System.Drawing.Size(54, 47);
+            this.btnCol3.Size = new System.Drawing.Size(61, 50);
             this.btnCol3.TabIndex = 12;
             this.btnCol3.Text = "v";
             this.btnCol3.UseVisualStyleBackColor = true;
@@ -172,10 +172,10 @@
             // 
             // btnCol6
             // 
-            this.btnCol6.Location = new System.Drawing.Point(718, 75);
-            this.btnCol6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnCol6.Location = new System.Drawing.Point(820, 80);
+            this.btnCol6.Margin = new System.Windows.Forms.Padding(4);
             this.btnCol6.Name = "btnCol6";
-            this.btnCol6.Size = new System.Drawing.Size(54, 47);
+            this.btnCol6.Size = new System.Drawing.Size(61, 50);
             this.btnCol6.TabIndex = 15;
             this.btnCol6.Text = "v";
             this.btnCol6.UseVisualStyleBackColor = true;
@@ -183,10 +183,10 @@
             // 
             // btnCol5
             // 
-            this.btnCol5.Location = new System.Drawing.Point(664, 75);
-            this.btnCol5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnCol5.Location = new System.Drawing.Point(759, 80);
+            this.btnCol5.Margin = new System.Windows.Forms.Padding(4);
             this.btnCol5.Name = "btnCol5";
-            this.btnCol5.Size = new System.Drawing.Size(54, 47);
+            this.btnCol5.Size = new System.Drawing.Size(61, 50);
             this.btnCol5.TabIndex = 14;
             this.btnCol5.Text = "v";
             this.btnCol5.UseVisualStyleBackColor = true;
@@ -194,10 +194,10 @@
             // 
             // btnCol4
             // 
-            this.btnCol4.Location = new System.Drawing.Point(609, 75);
-            this.btnCol4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnCol4.Location = new System.Drawing.Point(696, 80);
+            this.btnCol4.Margin = new System.Windows.Forms.Padding(4);
             this.btnCol4.Name = "btnCol4";
-            this.btnCol4.Size = new System.Drawing.Size(54, 47);
+            this.btnCol4.Size = new System.Drawing.Size(61, 50);
             this.btnCol4.TabIndex = 13;
             this.btnCol4.Text = "v";
             this.btnCol4.UseVisualStyleBackColor = true;
@@ -205,10 +205,10 @@
             // 
             // btnCol7
             // 
-            this.btnCol7.Location = new System.Drawing.Point(774, 75);
-            this.btnCol7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnCol7.Location = new System.Drawing.Point(884, 80);
+            this.btnCol7.Margin = new System.Windows.Forms.Padding(4);
             this.btnCol7.Name = "btnCol7";
-            this.btnCol7.Size = new System.Drawing.Size(54, 47);
+            this.btnCol7.Size = new System.Drawing.Size(61, 50);
             this.btnCol7.TabIndex = 16;
             this.btnCol7.Text = "v";
             this.btnCol7.UseVisualStyleBackColor = true;
@@ -222,12 +222,12 @@
             this.groupBoxWinner.Controls.Add(this.btnWinnerPlay);
             this.groupBoxWinner.Controls.Add(this.lblWinner);
             this.groupBoxWinner.Controls.Add(this.lblCongrats);
-            this.groupBoxWinner.Font = new System.Drawing.Font("Verdana", 1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBoxWinner.Location = new System.Drawing.Point(75, 153);
-            this.groupBoxWinner.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.groupBoxWinner.Font = new System.Drawing.Font("Verdana", 1F);
+            this.groupBoxWinner.Location = new System.Drawing.Point(85, 164);
+            this.groupBoxWinner.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxWinner.Name = "groupBoxWinner";
-            this.groupBoxWinner.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBoxWinner.Size = new System.Drawing.Size(765, 224);
+            this.groupBoxWinner.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBoxWinner.Size = new System.Drawing.Size(875, 239);
             this.groupBoxWinner.TabIndex = 17;
             this.groupBoxWinner.TabStop = false;
             this.groupBoxWinner.Visible = false;
@@ -239,13 +239,13 @@
             this.btnWinnerHome.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnWinnerHome.FlatAppearance.BorderSize = 0;
             this.btnWinnerHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnWinnerHome.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnWinnerHome.Font = new System.Drawing.Font("Verdana", 8F);
             this.btnWinnerHome.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnWinnerHome.Location = new System.Drawing.Point(308, 162);
-            this.btnWinnerHome.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnWinnerHome.Location = new System.Drawing.Point(340, 172);
+            this.btnWinnerHome.Margin = new System.Windows.Forms.Padding(4);
             this.btnWinnerHome.Name = "btnWinnerHome";
-            this.btnWinnerHome.Padding = new System.Windows.Forms.Padding(18, 0, 18, 0);
-            this.btnWinnerHome.Size = new System.Drawing.Size(150, 31);
+            this.btnWinnerHome.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
+            this.btnWinnerHome.Size = new System.Drawing.Size(195, 33);
             this.btnWinnerHome.TabIndex = 19;
             this.btnWinnerHome.Text = "Menu Principal";
             this.btnWinnerHome.UseVisualStyleBackColor = false;
@@ -258,13 +258,13 @@
             this.btnWinnerQuitter.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnWinnerQuitter.FlatAppearance.BorderSize = 0;
             this.btnWinnerQuitter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnWinnerQuitter.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnWinnerQuitter.Font = new System.Drawing.Font("Verdana", 8F);
             this.btnWinnerQuitter.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnWinnerQuitter.Location = new System.Drawing.Point(486, 162);
-            this.btnWinnerQuitter.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnWinnerQuitter.Location = new System.Drawing.Point(556, 172);
+            this.btnWinnerQuitter.Margin = new System.Windows.Forms.Padding(4);
             this.btnWinnerQuitter.Name = "btnWinnerQuitter";
-            this.btnWinnerQuitter.Padding = new System.Windows.Forms.Padding(18, 0, 18, 0);
-            this.btnWinnerQuitter.Size = new System.Drawing.Size(135, 31);
+            this.btnWinnerQuitter.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
+            this.btnWinnerQuitter.Size = new System.Drawing.Size(155, 33);
             this.btnWinnerQuitter.TabIndex = 18;
             this.btnWinnerQuitter.Text = "Quitter";
             this.btnWinnerQuitter.UseVisualStyleBackColor = false;
@@ -277,25 +277,25 @@
             this.btnWinnerPlay.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnWinnerPlay.FlatAppearance.BorderSize = 0;
             this.btnWinnerPlay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnWinnerPlay.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnWinnerPlay.Font = new System.Drawing.Font("Verdana", 8F);
             this.btnWinnerPlay.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnWinnerPlay.Location = new System.Drawing.Point(144, 162);
-            this.btnWinnerPlay.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnWinnerPlay.Location = new System.Drawing.Point(164, 172);
+            this.btnWinnerPlay.Margin = new System.Windows.Forms.Padding(4);
             this.btnWinnerPlay.Name = "btnWinnerPlay";
-            this.btnWinnerPlay.Padding = new System.Windows.Forms.Padding(18, 0, 18, 0);
-            this.btnWinnerPlay.Size = new System.Drawing.Size(135, 31);
+            this.btnWinnerPlay.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
+            this.btnWinnerPlay.Size = new System.Drawing.Size(155, 33);
             this.btnWinnerPlay.TabIndex = 7;
             this.btnWinnerPlay.Text = "Rejouer";
             this.btnWinnerPlay.UseVisualStyleBackColor = false;
+            this.btnWinnerPlay.Click += new System.EventHandler(this.btnWinnerPlay_Click);
             // 
             // lblWinner
             // 
-            this.lblWinner.AutoSize = true;
-            this.lblWinner.Font = new System.Drawing.Font("Verdana", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblWinner.Location = new System.Drawing.Point(177, 52);
+            this.lblWinner.Font = new System.Drawing.Font("Verdana", 20F);
+            this.lblWinner.Location = new System.Drawing.Point(96, 55);
             this.lblWinner.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblWinner.Name = "lblWinner";
-            this.lblWinner.Size = new System.Drawing.Size(331, 32);
+            this.lblWinner.Size = new System.Drawing.Size(682, 41);
             this.lblWinner.TabIndex = 1;
             this.lblWinner.Text = "Le JOUEUR 1 a gagné !";
             this.lblWinner.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -303,19 +303,19 @@
             // lblCongrats
             // 
             this.lblCongrats.AutoSize = true;
-            this.lblCongrats.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblCongrats.Location = new System.Drawing.Point(265, 112);
+            this.lblCongrats.Font = new System.Drawing.Font("Verdana", 10F);
+            this.lblCongrats.Location = new System.Drawing.Point(329, 119);
             this.lblCongrats.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCongrats.Name = "lblCongrats";
-            this.lblCongrats.Size = new System.Drawing.Size(181, 17);
+            this.lblCongrats.Size = new System.Drawing.Size(217, 20);
             this.lblCongrats.TabIndex = 0;
             this.lblCongrats.Text = "Bien jouer aux joueurs !";
             // 
             // PlateauForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(915, 532);
+            this.ClientSize = new System.Drawing.Size(1045, 567);
             this.Controls.Add(this.groupBoxWinner);
             this.Controls.Add(this.btnCol7);
             this.Controls.Add(this.btnCol6);
@@ -324,13 +324,13 @@
             this.Controls.Add(this.btnCol3);
             this.Controls.Add(this.btnCol2);
             this.Controls.Add(this.btnCol1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblPlayerToPlay);
+            this.Controls.Add(this.lblToPlay);
             this.Controls.Add(this.lblPlateauTour);
             this.Controls.Add(this.btnPlateauAbandon);
             this.Controls.Add(this.lblPlateauTimer);
             this.Controls.Add(this.plateauJeu);
-            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "PlateauForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Puissance 4";
@@ -347,8 +347,8 @@
         private System.Windows.Forms.Label lblPlateauTimer;
         private System.Windows.Forms.Button btnPlateauAbandon;
         private System.Windows.Forms.Label lblPlateauTour;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblToPlay;
+        private System.Windows.Forms.Label lblPlayerToPlay;
         private System.Windows.Forms.Button btnCol1;
         private System.Windows.Forms.Button btnCol2;
         private System.Windows.Forms.Button btnCol3;
