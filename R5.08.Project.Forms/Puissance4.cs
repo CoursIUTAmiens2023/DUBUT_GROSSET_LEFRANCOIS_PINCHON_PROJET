@@ -9,93 +9,93 @@ namespace ProjetForm
     public class Puissance4
     {
 
-        private String joueur1;
-        private String joueur2;
-        private bool redPlayerToPlay;
-        private bool playerVSPlayerMode;
-        bool[,] board;
-        bool[,] redPawnOnBoard;
-        bool[,] yellowPawnOnBoard;
+        private String v_Joueur1;
+        private String v_Joueur2;
+        private bool v_RedPlayerToPlay;
+        private bool v_PlayerVSPlayerMode;
+        bool[,] v_Board;
+        bool[,] v_RedPawnOnBoard;
+        bool[,] v_YellowPawnOnBoard;
 
-        public Puissance4(string joueur1, string joueur2, bool playerVSPlayerMode)
+        public Puissance4(string p_Joueur1, string p_Joueur2, bool p_PlayerVSPlayerMode)
         {
-            this.joueur1 = joueur1;
-            this.joueur2 = joueur2;
-            this.redPlayerToPlay = true;
-            this.playerVSPlayerMode = playerVSPlayerMode;
-            this.board = new bool[Puissance4Manager.BOARD_NUMBER_LINE, Puissance4Manager.BOARD_NUMBER_COLUMN];
-            this.redPawnOnBoard = new bool[Puissance4Manager.BOARD_NUMBER_LINE, Puissance4Manager.BOARD_NUMBER_COLUMN];
-            this.yellowPawnOnBoard = new bool[Puissance4Manager.BOARD_NUMBER_LINE, Puissance4Manager.BOARD_NUMBER_COLUMN];
+            this.v_Joueur1 = p_Joueur1;
+            this.v_Joueur2 = p_Joueur2;
+            this.v_RedPlayerToPlay = true;
+            this.v_PlayerVSPlayerMode = p_PlayerVSPlayerMode;
+            this.v_Board = new bool[Puissance4Manager.BOARD_NUMBER_LINE, Puissance4Manager.BOARD_NUMBER_COLUMN];
+            this.v_RedPawnOnBoard = new bool[Puissance4Manager.BOARD_NUMBER_LINE, Puissance4Manager.BOARD_NUMBER_COLUMN];
+            this.v_YellowPawnOnBoard = new bool[Puissance4Manager.BOARD_NUMBER_LINE, Puissance4Manager.BOARD_NUMBER_COLUMN];
         }
 
-        public void setJoueur1(String joueur1)
+        public void setJoueur1(String p_Joueur1)
         {
-            this.joueur1 = joueur1;
+            this.v_Joueur1 = p_Joueur1;
         }
 
         public String getJoueur1 ()
         {
-            return this.joueur1;
+            return this.v_Joueur1;
         }
 
-        public void setJoueur2(String joueur2) 
+        public void setJoueur2(String p_Joueur2) 
         { 
-            this.joueur2 = joueur2;
+            this.v_Joueur2 = p_Joueur2;
         }
 
         public String getJoueur2 ()
         {
-            return this.joueur2;
+            return this.v_Joueur2;
         }
 
-        public void setRedPlayerToPlay(bool redPlayerToPlay)
+        public void setRedPlayerToPlay(bool p_RedPlayerToPlay)
         {
-            this.redPlayerToPlay = redPlayerToPlay;
+            this.v_RedPlayerToPlay = p_RedPlayerToPlay;
         }
 
         public bool isRedPlayerToPlay()
         {
-            return this.redPlayerToPlay;
+            return this.v_RedPlayerToPlay;
         }
 
-        public void setPlayerVSPlayerMode(bool playerVSPlayerMode)
+        public void setPlayerVSPlayerMode(bool p_PlayerVSPlayerMode)
         {
-            this.playerVSPlayerMode = playerVSPlayerMode;
+            this.v_PlayerVSPlayerMode = p_PlayerVSPlayerMode;
         }
 
         public bool isPlayerVSPlayerMode()
         {
-            return this.playerVSPlayerMode;
+            return this.v_PlayerVSPlayerMode;
         }
 
-        public void setOnBoard(int p_x, int p_y, bool isOnBoard)
+        public void setOnBoard(int p_x, int p_y, bool p_IsOnBoard)
         {
-            this.board[p_x, p_y] = isOnBoard;
+            this.v_Board[p_x, p_y] = p_IsOnBoard;
         }
 
         public bool[,] getBoard()
         {
-            return this.board;
+            return this.v_Board;
         }
 
-        public void setRedPawnOnBoard(int p_x, int p_y, bool isOnBoard)
+        public void setRedPawnOnBoard(int p_x, int p_y, bool p_IsOnBoard)
         {
-            this.redPawnOnBoard[p_x, p_y] = isOnBoard;
+            this.v_RedPawnOnBoard[p_x, p_y] = p_IsOnBoard;
         }
 
         public bool[,] getRedPawnOnBoard()
         {
-            return this.redPawnOnBoard;
+            return this.v_RedPawnOnBoard;
         }
 
-        public void setYellowPawnOnBoard(int p_x, int p_y, bool isOnBoard)
+        public void setYellowPawnOnBoard(int p_x, int p_y, bool p_IsOnBoard)
         {
-            this.yellowPawnOnBoard[p_x, p_y] = isOnBoard;
+            this.v_YellowPawnOnBoard[p_x, p_y] = p_IsOnBoard;
         }
 
         public bool[,] getYellowPawnOnBoard()
         {
-            return this.yellowPawnOnBoard;
+            return this.v_YellowPawnOnBoard;
         }
     }
 }

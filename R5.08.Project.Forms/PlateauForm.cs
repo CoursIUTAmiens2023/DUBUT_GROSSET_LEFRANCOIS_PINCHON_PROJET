@@ -9,12 +9,12 @@ namespace ProjetForm
 {
     public partial class PlateauForm : Form
     {
-        private Puissance4 puissance4;
+        private Puissance4 v_Puissance4;
 
         public PlateauForm(Puissance4 p_Puissance4)
         {
             InitializeComponent();
-            this.puissance4 = p_Puissance4;
+            this.v_Puissance4 = p_Puissance4;
             lblPlayerToPlay.Text = p_Puissance4.isRedPlayerToPlay() ? p_Puissance4.getJoueur1() : p_Puissance4.getJoueur2();
         }
 
@@ -27,16 +27,16 @@ namespace ProjetForm
         {
             // Ajout du pion sur le plateau
             plateauJeu.Controls.Add(v_PlayerPawn, v_PawnPosition.X, v_PawnPosition.Y);
-            puissance4.setOnBoard(v_PawnPosition.Y, v_PawnPosition.X, true);
-            if (puissance4.isRedPlayerToPlay())
+            v_Puissance4.setOnBoard(v_PawnPosition.Y, v_PawnPosition.X, true);
+            if (v_Puissance4.isRedPlayerToPlay())
             {
-                puissance4.setRedPawnOnBoard(v_PawnPosition.Y, v_PawnPosition.X, true);
-                puissance4.setRedPlayerToPlay(false);
+                v_Puissance4.setRedPawnOnBoard(v_PawnPosition.Y, v_PawnPosition.X, true);
+                v_Puissance4.setRedPlayerToPlay(false);
             }
             else
             {
-                puissance4.setYellowPawnOnBoard(v_PawnPosition.Y, v_PawnPosition.X, true);
-                puissance4.setRedPlayerToPlay(true);
+                v_Puissance4.setYellowPawnOnBoard(v_PawnPosition.Y, v_PawnPosition.X, true);
+                v_Puissance4.setRedPlayerToPlay(true);
             }
         }
 
@@ -52,7 +52,7 @@ namespace ProjetForm
         /// Active l'écran de fin
         /// </summary>
         /// <param name="p_PseudoPlayerWinner">Le pseudo du joueur qui a gagné</param>
-        private void EnableEndScreen(String p_PseudoPlayerWinner)
+        private void EnableEndScreen(String p_PseudoPlayerWinner, bool draw)
         {
             // Affichage de la group Box pour montrer le gagnant
             groupBoxWinner.Visible = true;
@@ -63,7 +63,15 @@ namespace ProjetForm
             v_BtnColList.ForEach((btn) => btn.Enabled = false);
             btnPlateauAbandon.Enabled = false;
 
-            lblWinner.Text = p_PseudoPlayerWinner + " a gagné !";
+            if(draw)
+            {
+                lblWinner.Text = "Égalité !";
+            } else
+            {
+                lblWinner.Text = p_PseudoPlayerWinner + " a gagné !";
+            }
+
+            
         }
 
         private void buttonColonne_Click(object p_Sender, EventArgs p_EventArgs)
@@ -108,25 +116,30 @@ namespace ProjetForm
             }
 
             // Crée un nouveau pion à ajouter
-            v_PlayerPawn = Puissance4Manager.CreatePawn(puissance4);
+            v_PlayerPawn = Puissance4Manager.CreatePawn(v_Puissance4);
 
             // Calcule des position dans le plateau
-            v_PawnPosition = Puissance4Manager.GetPawnPosition(puissance4, v_ColumnPlayed);
+            v_PawnPosition = Puissance4Manager.GetPawnPosition(v_Puissance4, v_ColumnPlayed);
 
             if(v_PawnPosition.X != -1)
             {
                 AddPawnOnBoard(v_PlayerPawn, v_PawnPosition);   
             }
 
-            if(Puissance4Manager.CheckIfWin(puissance4))
+            if (Puissance4Manager.CheckIfWin(v_Puissance4))
             {
-                String v_PseudoPlayerWinner = puissance4.isRedPlayerToPlay() ? puissance4.getJoueur2() : puissance4.getJoueur1();
-                EnableEndScreen(v_PseudoPlayerWinner);
+                String v_PseudoPlayerWinner = v_Puissance4.isRedPlayerToPlay() ? v_Puissance4.getJoueur2() : v_Puissance4.getJoueur1();
+                EnableEndScreen(v_PseudoPlayerWinner, false);
             }
 
-            lblPlayerToPlay.Text = puissance4.isRedPlayerToPlay() ? puissance4.getJoueur1() : puissance4.getJoueur2();
+            if (Puissance4Manager.CheckIfDraw(v_Puissance4.getBoard()))
+            {
+                EnableEndScreen("égalité", true);
+            }
 
-            if(!puissance4.isPlayerVSPlayerMode())
+            lblPlayerToPlay.Text = v_Puissance4.isRedPlayerToPlay() ? v_Puissance4.getJoueur1() : v_Puissance4.getJoueur2();
+
+            if(!v_Puissance4.isPlayerVSPlayerMode())
             {
                 aiPlay();
             }
@@ -134,8 +147,8 @@ namespace ProjetForm
 
         private void btnPlateauAbandon_Click(object p_Sender, EventArgs p_EventArgs)
         {
-            String playerWinner = puissance4.isRedPlayerToPlay() ? puissance4.getJoueur2() : puissance4.getJoueur1();
-            EnableEndScreen(playerWinner);
+            String playerWinner = v_Puissance4.isRedPlayerToPlay() ? v_Puissance4.getJoueur2() : v_Puissance4.getJoueur1();
+            EnableEndScreen(playerWinner, false);
         }
 
         private void btnWinnerHome_Click(object p_Sender, EventArgs p_EventArgs)
@@ -158,7 +171,7 @@ namespace ProjetForm
             Hide();
 
             // Ouverture du plateau de jeu
-            Puissance4 newPuissance4 = new Puissance4(puissance4.getJoueur1(), puissance4.getJoueur2(), puissance4.isPlayerVSPlayerMode()); ;
+            Puissance4 newPuissance4 = new Puissance4(v_Puissance4.getJoueur1(), v_Puissance4.getJoueur2(), v_Puissance4.isPlayerVSPlayerMode()); ;
             PlateauForm v_PlateauForm = new PlateauForm(newPuissance4);
             v_PlateauForm.ShowDialog();
         }

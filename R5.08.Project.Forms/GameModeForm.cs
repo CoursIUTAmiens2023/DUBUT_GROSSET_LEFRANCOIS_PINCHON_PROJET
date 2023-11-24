@@ -63,16 +63,16 @@ namespace ProjetForm
 
             if (radioButtonPlayerVSPlayer.Checked)
             {
-                bool pseudoAreCorrect = CheckPseudoPlayerVSPlayer();
-                if (pseudoAreCorrect)
+                bool v_PseudoAreCorrect = CheckPseudoPlayerVSPlayer();
+                if (v_PseudoAreCorrect)
                 {
                     StartGame();
                 }
             }
             else if (radioButtonPlayerVSAi.Checked)
             {
-                bool pseudoAreCorrect = CheckPseudoPlayerVSAi();
-                if (pseudoAreCorrect)
+                bool v_PseudoAreCorrect = CheckPseudoPlayerVSAi();
+                if (v_PseudoAreCorrect)
                 {
                     StartGame();
                 }
@@ -81,17 +81,17 @@ namespace ProjetForm
 
         private bool CheckPseudoPlayerVSPlayer()
         {
-            bool pseudoAreCorrect = true;
+            bool v_PseudoAreCorrect = true;
 
             if (inputPseudoPlayer1.Text.Length <= 0)
             {
                 errorProviderInputPseudoPlayer1.SetError(inputPseudoPlayer1, "Le pseudo ne peut pas être vide !");
-                pseudoAreCorrect = false;
+                v_PseudoAreCorrect = false;
             }
             else if (inputPseudoPlayer1.Text.Length > 10)
             {
                 errorProviderInputPseudoPlayer1.SetError(inputPseudoPlayer1, "Le pseudo ne peut pas excéder 10 caractères !");
-                pseudoAreCorrect = false;
+                v_PseudoAreCorrect = false;
             } else
             {
                 errorProviderInputPseudoPlayer1.SetError(inputPseudoPlayer1, "");
@@ -100,57 +100,57 @@ namespace ProjetForm
             if (inputPseudoPlayer2.Text.Length <= 0)
             {
                 errorProviderInputPseudoPlayer2.SetError(inputPseudoPlayer2, "Le pseudo ne peut pas être vide !");
-                pseudoAreCorrect = false;
+                v_PseudoAreCorrect = false;
             }
             else if (inputPseudoPlayer2.Text.Length > 10)
             {
                 errorProviderInputPseudoPlayer2.SetError(inputPseudoPlayer2, "Le pseudo ne peut pas excéder 10 caractères !");
-                pseudoAreCorrect = false;
+                v_PseudoAreCorrect = false;
             } else
             {
                 errorProviderInputPseudoPlayer2.SetError(inputPseudoPlayer2, "");
             }
 
-            return pseudoAreCorrect;
+            return v_PseudoAreCorrect;
         }
 
         private bool CheckPseudoPlayerVSAi()
         {
-            bool pseudoAreCorrect = true;
+            bool v_PseudoAreCorrect = true;
 
             if (inputPseudoPlayer.Text.Length <= 0)
             {
                 errorProviderInputPseudoPlayer.SetError(inputPseudoPlayer, "Le pseudo ne peut pas être vide !");
-                pseudoAreCorrect = false;
+                v_PseudoAreCorrect = false;
             }
             else if (inputPseudoPlayer.Text.Length > 10)
             {
                 errorProviderInputPseudoPlayer.SetError(inputPseudoPlayer, "Le pseudo ne peut pas excéder 10 caractères !");
-                pseudoAreCorrect = false;
+                v_PseudoAreCorrect = false;
             }
             else
             {
                 errorProviderInputPseudoPlayer.SetError(inputPseudoPlayer, "");
             }
 
-            return pseudoAreCorrect;
+            return v_PseudoAreCorrect;
         }
 
         private void StartGame()
         {
             Hide();
 
-            Puissance4 puissance4;
+            Puissance4 v_Puissance4;
             if (radioButtonPlayerVSPlayer.Checked)
             {
-                puissance4 = new Puissance4(inputPseudoPlayer1.Text, inputPseudoPlayer2.Text, true);
+                v_Puissance4 = new Puissance4(inputPseudoPlayer1.Text, inputPseudoPlayer2.Text, true);
             } else
             {
-                puissance4 = new Puissance4(inputPseudoPlayer.Text, "", false);
+                v_Puissance4 = new Puissance4(inputPseudoPlayer.Text, "", false);
             }
 
             // Ouverture du plateau de jeu
-            PlateauForm v_PlateauForm = new PlateauForm(puissance4);
+            PlateauForm v_PlateauForm = new PlateauForm(v_Puissance4);
             v_PlateauForm.ShowDialog();
         }
     }

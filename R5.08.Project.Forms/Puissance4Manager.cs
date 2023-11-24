@@ -17,22 +17,22 @@ namespace ProjetForm
         /// <summary>
         /// Crée un pion
         /// </summary>
-        /// <param name="puissance4"> La partie de puissance4</param>
+        /// <param name="p_Puissance4"> La partie de puissance4</param>
         /// <returns>Le pion</returns>
-        public static PictureBox CreatePawn(Puissance4 puissance4)
+        public static PictureBox CreatePawn(Puissance4 p_Puissance4)
         {
-            if (puissance4.isRedPlayerToPlay())
-                return CreatePawn(puissance4, Color.Red);
-            return CreatePawn(puissance4, Color.Yellow);
+            if (p_Puissance4.isRedPlayerToPlay())
+                return CreatePawn(p_Puissance4, Color.Red);
+            return CreatePawn(p_Puissance4, Color.Yellow);
         }
 
         /// <summary>
         /// Crée un pion
         /// </summary>
-        /// <param name="puissance4">La partie de puissance4</param>
+        /// <param name="p_Puissance4">La partie de puissance4</param>
         /// <param name="p_Color">La couleur du pion</param>
         /// <returns>Le pion</returns>
-        private static PictureBox CreatePawn(Puissance4 puissance4, Color p_Color)
+        private static PictureBox CreatePawn(Puissance4 p_Puissance4, Color p_Color)
         {
             PictureBox v_PBBoxPawn = new PictureBox();
 
@@ -58,10 +58,10 @@ namespace ProjetForm
         /// <summary>
         /// Retour la position du pion
         /// </summary>
-        /// <param name="puissance4">La partie de puissance4</param>
+        /// <param name="p_Puissance4">La partie de puissance4</param>
         /// <param name="p_pawnColmunPosition">La colonne choisi par le joueur</param>
         /// <returns>La position du pion (retourn (-1, -1) s'il n'y a pas d'emplacement libre)</returns>
-        public static Point GetPawnPosition(Puissance4 puissance4, int p_pawnColmunPosition)
+        public static Point GetPawnPosition(Puissance4 p_Puissance4, int p_pawnColmunPosition)
         {
             int v_pawnLinePosition = 5;
             bool v_pawnLinePositionFind = false;
@@ -69,7 +69,7 @@ namespace ProjetForm
 
             while (!v_pawnLinePositionFind && v_pawnLinePosition >= 0)
             {
-                if (puissance4.getBoard()[v_pawnLinePosition, v_pawnColmunPosition])
+                if (p_Puissance4.getBoard()[v_pawnLinePosition, v_pawnColmunPosition])
                 {
                     v_pawnLinePosition--;
                 }
@@ -88,15 +88,15 @@ namespace ProjetForm
         /// <summary>
         /// Retourne s'il y a eu un gagnant ou non.
         /// </summary>
-        /// <param name="puissance4">La partie de puissance4</param>
+        /// <param name="p_Puissance4">La partie de puissance4</param>
         /// <returns>Vrai ou faux selon s'il y a un gagnant</returns>
-        public static bool CheckIfWin(Puissance4 puissance4)
+        public static bool CheckIfWin(Puissance4 p_Puissance4)
         {
             // Si c'est au rouge de jouer, c'est que le jaune vient de jouer, donc on vérifie s'il à gagné
             bool v_playerWin;
-            if (puissance4.isRedPlayerToPlay())
-                v_playerWin = CheckIfWin(puissance4.getYellowPawnOnBoard());
-            else v_playerWin = CheckIfWin(puissance4.getRedPawnOnBoard());
+            if (p_Puissance4.isRedPlayerToPlay())
+                v_playerWin = CheckIfWin(p_Puissance4.getYellowPawnOnBoard());
+            else v_playerWin = CheckIfWin(p_Puissance4.getRedPawnOnBoard());
 
             return v_playerWin;
         }
@@ -246,6 +246,22 @@ namespace ProjetForm
             }
 
             return v_nbrOfPawnInARow == 4;
+        }
+
+        public static bool CheckIfDraw(bool[,] p_pawnOnBoard)
+        {
+            for(int v_line = 0; v_line < p_pawnOnBoard.GetLength(0); v_line++)
+            {
+                for(int v_column = 0; v_column < p_pawnOnBoard.GetLength(1); v_column++)
+                {
+                    if (!p_pawnOnBoard[v_line, v_column])
+                    {
+                        return false;
+                    }
+                } 
+            }
+
+            return true;
         }
     }
 }
