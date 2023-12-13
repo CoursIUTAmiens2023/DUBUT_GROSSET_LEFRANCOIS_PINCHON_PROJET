@@ -13,11 +13,13 @@ namespace ProjetForm
         private String v_Joueur2;
         private bool v_RedPlayerToPlay;
         private bool v_PlayerVSPlayerMode;
+
+        public int v_difficulty;
         bool[,] v_Board;
         bool[,] v_RedPawnOnBoard;
         bool[,] v_YellowPawnOnBoard;
 
-        public Puissance4(string p_Joueur1, string p_Joueur2, bool p_PlayerVSPlayerMode)
+        public Puissance4(string p_Joueur1, string p_Joueur2, bool p_PlayerVSPlayerMode, int v_difficulty=-1)
         {
             this.v_Joueur1 = p_Joueur1;
             this.v_Joueur2 = p_Joueur2;
@@ -26,6 +28,17 @@ namespace ProjetForm
             this.v_Board = new bool[Puissance4Manager.BOARD_NUMBER_LINE, Puissance4Manager.BOARD_NUMBER_COLUMN];
             this.v_RedPawnOnBoard = new bool[Puissance4Manager.BOARD_NUMBER_LINE, Puissance4Manager.BOARD_NUMBER_COLUMN];
             this.v_YellowPawnOnBoard = new bool[Puissance4Manager.BOARD_NUMBER_LINE, Puissance4Manager.BOARD_NUMBER_COLUMN];
+            this.v_difficulty = v_difficulty;
+        }
+
+        public void Copy(Puissance4 other)
+        {
+            if (other == null) throw new ArgumentNullException("other");
+
+            this.v_RedPlayerToPlay = other.v_RedPlayerToPlay;
+            this.v_difficulty = other.v_difficulty;
+            this.v_Board = (bool[,])other.v_Board.Clone();
+            this.v_RedPawnOnBoard = (bool[,])other.v_RedPawnOnBoard.Clone();
         }
 
         public void setJoueur1(String p_Joueur1)

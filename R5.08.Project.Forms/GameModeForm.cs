@@ -146,7 +146,9 @@ namespace ProjetForm
                 v_Puissance4 = new Puissance4(inputPseudoPlayer1.Text, inputPseudoPlayer2.Text, true);
             } else
             {
-                v_Puissance4 = new Puissance4(inputPseudoPlayer.Text, "", false);
+                // Récupérer le niveau de difficulté de l'IA, 0 -> Easy, 1 -> Normal, 2 -> Hard
+                int v_NiveauIa = radioButtonModeEasy.Checked ? 0 : (radioButtonModeNormal.Checked ? 1 : 2);
+                v_Puissance4 = new Puissance4(inputPseudoPlayer.Text, "Le Bot", false, v_NiveauIa);
             }
 
             // Ouverture du plateau de jeu

@@ -46,7 +46,16 @@ namespace ProjetForm
         /// </summary>
         private void aiPlay()
         {
-            // Faire jouer l'IA.
+            if (v_Puissance4.v_difficulty == 0)
+            {
+                Point v_Pos = Bot.EasyModePlay(v_Puissance4);
+                PictureBox v_AiPawn = Puissance4Manager.CreatePawn(v_Puissance4);
+
+                AddPawnOnBoard(v_AiPawn, v_Pos);
+            } else
+            {
+
+            }
         }
 
         /// <summary>
@@ -147,6 +156,27 @@ namespace ProjetForm
             if(!v_Puissance4.isPlayerVSPlayerMode())
             {
                 aiPlay();
+
+                if (Puissance4Manager.CheckIfWin(v_Puissance4))
+                {
+                    m_Timer.Stop();
+                    string v_PseudoPlayerWinner = v_Puissance4.isRedPlayerToPlay() ? v_Puissance4.getJoueur2() : v_Puissance4.getJoueur1();
+                    string v_PseudoPlayerLose = v_Puissance4.isRedPlayerToPlay() ? v_Puissance4.getJoueur1() : v_Puissance4.getJoueur2();
+                    AddPlayer(true, v_PseudoPlayerWinner);
+                    AddPlayer(false, v_PseudoPlayerLose);
+                    EnableEndScreen(v_PseudoPlayerWinner, false);
+                }
+
+                if (Puissance4Manager.CheckIfDraw(v_Puissance4.getBoard()))
+                {
+                    m_Timer.Stop();
+                    AddPlayer(false, v_Puissance4.getJoueur2());
+                    AddPlayer(false, v_Puissance4.getJoueur1());
+                    EnableEndScreen("égalité", true);
+                }
+
+                lblPlayerToPlay.Text = v_Puissance4.isRedPlayerToPlay() ? v_Puissance4.getJoueur1() : v_Puissance4.getJoueur2();
+
             }
         }
 
@@ -255,7 +285,7 @@ namespace ProjetForm
         private void TimerTick(object? p_Sender, EventArgs? p_EventArgs)
         {
             m_ElapsedTime++;
-            lblPlateauTimer.Text = $"Temps écoulé : {m_ElapsedTime} secondes";
+            //lblPlateauTimer.Text = $"Temps écoulé : {m_ElapsedTime} secondes";
         }
     }
 }

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.CompilerServices;
 
 namespace ProjetForm
 {
@@ -262,6 +263,35 @@ namespace ProjetForm
             }
 
             return true;
+        }
+
+        public static List<bool> GetAvailablesColumns(Puissance4 p_Puissance4)
+        {
+            List<bool> v_AvailableColumns = new List<bool>();
+            
+
+            for (int column = 1; column <= Puissance4Manager.BOARD_NUMBER_COLUMN; column++)
+            {
+                v_AvailableColumns.Add(Puissance4Manager.GetPawnPosition(p_Puissance4, column).X != -1);
+            }
+
+            return v_AvailableColumns;
+        }
+
+        public static int[] GetAvailablesColumnsId(Puissance4 p_Puissance4)
+        {
+            List<int> v_AvailableColumns = new List<int>();
+
+            for (int column = 1; column <= Puissance4Manager.BOARD_NUMBER_COLUMN; column++)
+            {
+                Point v_Post = Puissance4Manager.GetPawnPosition(p_Puissance4, column);
+                if (v_Post.X != -1 && v_Post.Y != -1)
+                {
+                    v_AvailableColumns.Add(column);
+                }
+            }
+
+            return v_AvailableColumns.ToArray();
         }
     }
 }
