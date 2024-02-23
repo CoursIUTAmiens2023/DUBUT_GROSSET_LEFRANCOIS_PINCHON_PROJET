@@ -42,7 +42,7 @@ namespace R5._08.Project.Forms
                 v_WinrateForAi = new List<float>();
 
                 // Générer des grids aléatoires pour récupérer le coups avec la meillieur proba de win
-                for (int grid_number = 0; grid_number <= 100; grid_number++)
+                for (int grid_number = 0; grid_number <= 120; grid_number++)
                 {
                     puissance4 tmp_grid = (puissance4)v_Puissance4.Clone();
 
@@ -67,18 +67,17 @@ namespace R5._08.Project.Forms
                         }
                         else
                         {
-                            v_WinrateForAi.Add(0);
+                            v_WinrateForAi.Add(-100);
                         }
                     }
                     else
                     {
                         // Égalitée
-                        v_WinrateForAi.Add(40);
+                        v_WinrateForAi.Add(20);
                     }
-                    puissance4.Delete(tmp_grid);
-                    tmp_grid = null;
-                    GC.Collect();
-                    GC.WaitForPendingFinalizers();
+                    string grids = tmp_grid.grid.printstring();
+
+                    Grid.ALL_GRIDS.Remove(tmp_grid.grid.c_GridId);
                 }
 
                 // Regarder si jouer ce coup est mieux que le meilleur coup déjà trouvé

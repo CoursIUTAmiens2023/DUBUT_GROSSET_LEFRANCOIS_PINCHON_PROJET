@@ -38,6 +38,7 @@ namespace R5._08.Project.Forms.Models
         public object Clone()
         {
             Grid grid = (Grid)MemberwiseClone();
+            //Grid grid = new Grid();
             grid.v_GridTiles = new Dictionary<(int x, int y), Tile>();
             grid.v_WinVectors = new List<Vecteur>();
             foreach ((int, int) v_Coo in v_GridTiles.Keys)
@@ -60,7 +61,10 @@ namespace R5._08.Project.Forms.Models
             Tile tile = Get(x, y);
             tile.UpdateTilePlayer(player);
 
-            this.v_WinVectors.AddRange(tile.v_WinVectors);
+            if (tile.v_WinVectors.Count > 0)
+            {
+                v_WinVectors.AddRange(tile.v_WinVectors);
+            }
             Console.WriteLine(v_WinVectors.Count);
         }
 
@@ -84,6 +88,22 @@ namespace R5._08.Project.Forms.Models
                 }
                 Console.WriteLine();
             }
+        }
+
+        public string printstring()
+        {
+            string grids = "";
+            for (int y = Grid.NUMBER_OF_ROWS - 1; y >= 0; y--)
+            {
+                for (int x = 0; x < Grid.NUMBER_OF_COLS; x++)
+                {
+                    Tile tile = v_GridTiles[(x, y)];
+                    grids += "[" + tile.v_Player.ToString() + "]";
+                }
+                grids += "\n";
+            }
+
+            return grids;
         }
 
     }

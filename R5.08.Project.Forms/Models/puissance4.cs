@@ -8,9 +8,9 @@ namespace R5._08.Project.Forms.Models
 {
     public class puissance4: ICloneable
     {
-        public Grid grid = new Grid();
+        public Grid grid;// = new Grid();
 
-        public List<int> v_NbPawnByRow = new List<int>();
+        public List<int> v_NbPawnByCol = new List<int>();
         
         public int v_CurrentPlayer = 0;
 
@@ -23,17 +23,27 @@ namespace R5._08.Project.Forms.Models
 
         public puissance4()
         {
+            grid = new Grid();
             // Initialiser les colonnes
             for (int col_index = 0; col_index < Grid.NUMBER_OF_COLS; col_index++)
             {
-                v_NbPawnByRow.Add(0);
+                v_NbPawnByCol.Add(0);
+            }
+        }
+
+        private puissance4(int a)
+        {
+            // Initialiser les colonnes
+            for (int col_index = 0; col_index < Grid.NUMBER_OF_COLS; col_index++)
+            {
+                v_NbPawnByCol.Add(0);
             }
         }
 
         public object Clone()
         {
             //puissance4 v_Puissance4 = (puissance4)MemberwiseClone();
-            puissance4 v_Puissance4 = new puissance4();
+            puissance4 v_Puissance4 = new puissance4(0);
 
             v_Puissance4.v_Joueur1 = v_Joueur1;
             v_Puissance4.v_Joueur2 = v_Joueur2;
@@ -41,28 +51,9 @@ namespace R5._08.Project.Forms.Models
             v_Puissance4.v_Winner = v_Winner;
             v_Puissance4.v_CurrentPlayer = v_CurrentPlayer;
             v_Puissance4.grid = (Grid)grid.Clone();
-            v_Puissance4.v_NbPawnByRow = new List<int>(v_Puissance4.v_NbPawnByRow);
+            v_Puissance4.v_NbPawnByCol = new List<int>(v_NbPawnByCol);
 
             return v_Puissance4;
-        }
-
-        static public void Delete(puissance4 v_Puissance4)
-        {
-            Grid.ALL_GRIDS.Remove(v_Puissance4.grid.c_GridId);
-            
-            foreach (Tile v_Tile in v_Puissance4.grid.v_GridTiles.Values)
-            {
-                v_Tile.v_Vectors.Clear();
-                v_Tile.v_WinVectors.Clear();
-            }
-            v_Puissance4.grid.v_GridTiles.Clear();
-            v_Puissance4.grid.v_GridTiles = null;
-            v_Puissance4.grid.v_WinVectors.Clear();
-            v_Puissance4.grid.v_WinVectors = null;
-            v_Puissance4.grid = null;
-            v_Puissance4.grid = null;
-            GC.Collect();
-            GC.WaitForPendingFinalizers();
         }
 
         public string GetPlayerToPlay()
@@ -79,11 +70,11 @@ namespace R5._08.Project.Forms.Models
         public List<int> GetAvailableCols()
         {
             List<int> cols = new List<int>();
-            for (int row_index = 0; row_index < Grid.NUMBER_OF_ROWS; row_index ++)
+            for (int col_index = 0; col_index < Grid.NUMBER_OF_COLS; col_index ++)
             {
-                if (v_NbPawnByRow[row_index] < Grid.NUMBER_OF_COLS - 1)
+                if (v_NbPawnByCol[col_index] < Grid.NUMBER_OF_ROWS)
                 {
-                    cols.Add(row_index);
+                    cols.Add(col_index);
                 }
             }
             return cols;
@@ -96,13 +87,13 @@ namespace R5._08.Project.Forms.Models
                 throw new ArgumentException("Index de colonne invalide");
             }
 
-            if (v_NbPawnByRow[col_index] - 1 >= Grid.NUMBER_OF_ROWS)
+            if (v_NbPawnByCol[col_index] - 1 >= Grid.NUMBER_OF_ROWS)
             {
                 throw new ArgumentException("Plus de place dans la colonne choisie");
             }
 
-            this.grid.Play(col_index, v_NbPawnByRow[col_index], this.v_CurrentPlayer);
-            v_NbPawnByRow[col_index]++;
+            this.grid.Play(col_index, v_NbPawnByCol[col_index], this.v_CurrentPlayer);
+            v_NbPawnByCol[col_index]++;
 
             // Vérifier s'il y a un gagnant
             if (grid.v_WinVectors.Count > 0 && v_Winner == -1)
@@ -111,12 +102,12 @@ namespace R5._08.Project.Forms.Models
             }
             this.v_CurrentPlayer = (this.v_CurrentPlayer + 1) % 2;
 
-            return v_NbPawnByRow[col_index] - 1;
+            return v_NbPawnByCol[col_index] - 1;
         }
 
         public bool CheckIfDraw()
         {
-            int v_TotalPawn = v_NbPawnByRow.Sum(x => x);
+            int v_TotalPawn = v_NbPawnByCol.Sum(x => x);
             return v_TotalPawn >= Grid.NUMBER_OF_COLS * Grid.NUMBER_OF_ROWS;
         }
     }

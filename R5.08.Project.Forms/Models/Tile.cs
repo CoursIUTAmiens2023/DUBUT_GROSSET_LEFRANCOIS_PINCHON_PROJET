@@ -66,7 +66,7 @@ namespace R5._08.Project.Forms.Models
 
                     if (vector.v_Lenght >= 4)
                     {
-                        this.v_WinVectors.Add(vector);
+                        p_tile.v_WinVectors.Add(vector);
                     }
                 }
             }
@@ -86,7 +86,7 @@ namespace R5._08.Project.Forms.Models
         {
             this.v_Player = player;
             List<Tile> neighbors = GetNeighbors();
-            Console.WriteLine(neighbors.Count);
+            Console.WriteLine(neighbors.Count);// TODO ICI
             foreach (Tile neighbor in neighbors) 
             {
                 neighbor.UpdateVector(this);
@@ -203,6 +203,7 @@ namespace R5._08.Project.Forms.Models
         {
             Tile tile = (Tile)MemberwiseClone();
             tile.v_WinVectors = new List<Vecteur>();
+            tile.v_GridId = -1;
             foreach (Vecteur v_Vector in this.v_WinVectors)
             {
                 tile.v_WinVectors.Add((Vecteur)v_Vector.Clone());
