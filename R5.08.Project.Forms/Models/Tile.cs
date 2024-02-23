@@ -44,7 +44,7 @@ namespace R5._08.Project.Forms.Models
             {
                 v_Direction = "Horizontale";
 
-            } else if (v_XDirection == -1 && v_YDirection == 1 || v_XDirection == 1 && v_XDirection == -1)
+            } else if (v_XDirection == -1 && v_YDirection == 1 || v_XDirection == 1 && v_YDirection == -1)
             {
                 v_Direction = "Diagonale-Droite";
 

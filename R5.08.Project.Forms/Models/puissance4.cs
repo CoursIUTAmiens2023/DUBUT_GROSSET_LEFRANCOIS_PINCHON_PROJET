@@ -19,6 +19,7 @@ namespace R5._08.Project.Forms.Models
         public string v_Joueur1 = "";
         public string v_Joueur2 = "";
 
+        public int v_NbPawn = 0;
         public int v_difficulty = -1;
 
         public puissance4()
@@ -31,7 +32,7 @@ namespace R5._08.Project.Forms.Models
             }
         }
 
-        private puissance4(int a)
+        private puissance4(int _)
         {
             // Initialiser les colonnes
             for (int col_index = 0; col_index < Grid.NUMBER_OF_COLS; col_index++)
@@ -50,6 +51,7 @@ namespace R5._08.Project.Forms.Models
             v_Puissance4.v_difficulty = v_difficulty;
             v_Puissance4.v_Winner = v_Winner;
             v_Puissance4.v_CurrentPlayer = v_CurrentPlayer;
+            v_Puissance4.v_NbPawn = v_NbPawn;
             v_Puissance4.grid = (Grid)grid.Clone();
             v_Puissance4.v_NbPawnByCol = new List<int>(v_NbPawnByCol);
 
@@ -94,6 +96,8 @@ namespace R5._08.Project.Forms.Models
 
             this.grid.Play(col_index, v_NbPawnByCol[col_index], this.v_CurrentPlayer);
             v_NbPawnByCol[col_index]++;
+
+            v_NbPawn++;
 
             // Vérifier s'il y a un gagnant
             if (grid.v_WinVectors.Count > 0 && v_Winner == -1)

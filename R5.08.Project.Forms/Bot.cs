@@ -42,11 +42,12 @@ namespace R5._08.Project.Forms
                 v_WinrateForAi = new List<float>();
 
                 // Générer des grids aléatoires pour récupérer le coups avec la meillieur proba de win
-                for (int grid_number = 0; grid_number <= 120; grid_number++)
+                for (int grid_number = 0; grid_number < 80; grid_number++)
                 {
                     puissance4 tmp_grid = (puissance4)v_Puissance4.Clone();
-
+                    tmp_grid.PlacePawn(MainColToTry);
                     List<int> v_AvailablesColumnsTmpGrid = tmp_grid.GetAvailableCols();
+
                     while (v_AvailablesColumnsTmpGrid.Count > 0 && tmp_grid.v_Winner == -1 )
                     {
                         int v_ColIndex = rd.Next(v_AvailablesColumnsTmpGrid.Count);
@@ -63,11 +64,23 @@ namespace R5._08.Project.Forms
                         string v_PseudoPlayerWinner = tmp_grid.GetWinnerName();
                         if (v_PseudoPlayerWinner == "Le Bot")
                         {
-                            v_WinrateForAi.Add(120);
+                            if (tmp_grid.v_NbPawn - v_Puissance4.v_NbPawn == 1)
+                            {
+                                v_WinrateForAi.Add(10000);
+                            } else {
+                                v_WinrateForAi.Add(200 / tmp_grid.v_NbPawn); 
+                            }
                         }
                         else
                         {
-                            v_WinrateForAi.Add(-100);
+                            if (tmp_grid.v_NbPawn - v_Puissance4.v_NbPawn == 2)
+                            {
+                                v_WinrateForAi.Add(-8000);
+                            }
+                            else
+                            {
+                                v_WinrateForAi.Add(-50 + tmp_grid.v_NbPawn);
+                            }
                         }
                     }
                     else
