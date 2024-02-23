@@ -124,32 +124,7 @@ namespace ProjetForm
 
             try {
                 int v_RowPlayed = v_Puissance4.PlacePawn(v_ColumnPlayed);
-                AddPawnOnBoard(v_PlayerPawn, v_ColumnPlayed, v_RowPlayed);   
-            } catch (Exception e) { }
-
-            if (v_Puissance4.v_Winner != -1)
-            {
-                m_Timer.Stop();
-                string v_PseudoPlayerWinner = v_Puissance4.v_Winner == 1 ? v_Puissance4.v_Joueur2 : v_Puissance4.v_Joueur1;
-                string v_PseudoPlayerLose = v_Puissance4.v_Winner == 1 ? v_Puissance4.v_Joueur1 : v_Puissance4.v_Joueur2;
-                AddPlayer(true, v_PseudoPlayerWinner);
-                AddPlayer(false, v_PseudoPlayerLose);
-                EnableEndScreen(v_PseudoPlayerWinner, false);
-            }
-
-            if (v_Puissance4.CheckIfDraw())
-            {
-                m_Timer.Stop();
-                AddPlayer(false, v_Puissance4.v_Joueur2);
-                AddPlayer(false, v_Puissance4.v_Joueur1);
-                EnableEndScreen("égalité", true);
-            }
-
-            lblPlayerToPlay.Text = v_Puissance4.GetPlayerToPlay();
-
-            if(v_Puissance4.v_difficulty >= 0)
-            {
-                aiPlay();
+                AddPawnOnBoard(v_PlayerPawn, v_ColumnPlayed, v_RowPlayed);
 
                 if (v_Puissance4.v_Winner != -1)
                 {
@@ -171,7 +146,33 @@ namespace ProjetForm
 
                 lblPlayerToPlay.Text = v_Puissance4.GetPlayerToPlay();
 
-            }
+                if (v_Puissance4.v_difficulty >= 0)
+                {
+                    aiPlay();
+
+                    if (v_Puissance4.v_Winner != -1)
+                    {
+                        m_Timer.Stop();
+                        string v_PseudoPlayerWinner = v_Puissance4.v_Winner == 1 ? v_Puissance4.v_Joueur2 : v_Puissance4.v_Joueur1;
+                        string v_PseudoPlayerLose = v_Puissance4.v_Winner == 1 ? v_Puissance4.v_Joueur1 : v_Puissance4.v_Joueur2;
+                        AddPlayer(true, v_PseudoPlayerWinner);
+                        AddPlayer(false, v_PseudoPlayerLose);
+                        EnableEndScreen(v_PseudoPlayerWinner, false);
+                    }
+
+                    if (v_Puissance4.CheckIfDraw())
+                    {
+                        m_Timer.Stop();
+                        AddPlayer(false, v_Puissance4.v_Joueur2);
+                        AddPlayer(false, v_Puissance4.v_Joueur1);
+                        EnableEndScreen("égalité", true);
+                    }
+
+                    lblPlayerToPlay.Text = v_Puissance4.GetPlayerToPlay();
+
+                }
+            } catch (Exception e) { }
+
         }
 
         public void AddPlayer(bool p_IsWinner, string p_Name)

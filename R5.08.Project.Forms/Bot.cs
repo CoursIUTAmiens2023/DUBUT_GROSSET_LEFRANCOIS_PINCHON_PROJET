@@ -33,7 +33,7 @@ namespace R5._08.Project.Forms
             Random rd = new Random();
             List<float> v_WinrateForAi;
 
-            int v_BestColumnForAi = 0;
+            int v_BestColumnForAi = -1;
             float v_BestScoreForAi = float.NaN;
 
             // Obtenir des Winrates pour des coups aléatoires
@@ -95,7 +95,7 @@ namespace R5._08.Project.Forms
 
                 // Regarder si jouer ce coup est mieux que le meilleur coup déjà trouvé
                 float v_AvgWinrate = v_WinrateForAi.Average();
-                if (v_BestColumnForAi == 0 || v_BestScoreForAi == float.NaN || v_AvgWinrate > v_BestScoreForAi)
+                if (v_BestColumnForAi == -1 || v_BestScoreForAi == float.NaN || v_AvgWinrate > v_BestScoreForAi)
                 {
                     v_BestColumnForAi = MainColToTry;
                     v_BestScoreForAi = v_AvgWinrate;
