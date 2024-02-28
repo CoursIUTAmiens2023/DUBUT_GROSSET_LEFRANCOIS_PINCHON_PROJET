@@ -27,7 +27,7 @@ namespace ProjetForm
 
         private void btnGameModeBack_Click(object p_Sender, EventArgs p_EventArgs)
         {
-            
+
             Hide();
 
             // Réouvre la page Home
@@ -37,7 +37,7 @@ namespace ProjetForm
 
         private void inputPseudoPlayer1_Enter(object p_Sender, EventArgs p_EventArgs)
         {
-            if(inputPseudoPlayer1.Text.Equals("Joueur 1"))
+            if (inputPseudoPlayer1.Text.Equals("Joueur 1"))
             {
                 inputPseudoPlayer1.Clear();
             }
@@ -77,7 +77,7 @@ namespace ProjetForm
                 {
                     StartGame();
                 }
-            } 
+            }
         }
 
         private bool CheckPseudoPlayerVSPlayer()
@@ -93,11 +93,12 @@ namespace ProjetForm
             {
                 errorProviderInputPseudoPlayer1.SetError(inputPseudoPlayer1, "Le pseudo ne peut pas excéder 10 caractères !");
                 v_PseudoAreCorrect = false;
-            } else
+            }
+            else
             {
                 errorProviderInputPseudoPlayer1.SetError(inputPseudoPlayer1, "");
             }
-            
+
             if (inputPseudoPlayer2.Text.Length <= 0)
             {
                 errorProviderInputPseudoPlayer2.SetError(inputPseudoPlayer2, "Le pseudo ne peut pas être vide !");
@@ -107,7 +108,8 @@ namespace ProjetForm
             {
                 errorProviderInputPseudoPlayer2.SetError(inputPseudoPlayer2, "Le pseudo ne peut pas excéder 10 caractères !");
                 v_PseudoAreCorrect = false;
-            } else
+            }
+            else
             {
                 errorProviderInputPseudoPlayer2.SetError(inputPseudoPlayer2, "");
             }
@@ -146,12 +148,22 @@ namespace ProjetForm
             {
                 v_Puissance4.v_Joueur1 = inputPseudoPlayer1.Text;
                 v_Puissance4.v_Joueur2 = inputPseudoPlayer2.Text;
-            } else
+            }
+            else
             {
                 // Récupérer le niveau de difficulté de l'IA, 0 -> Easy, 1 -> Normal, 2 -> Hard
                 int v_NiveauIa = radioButtonModeEasy.Checked ? 0 : (radioButtonModeNormal.Checked ? 1 : 2);
-                v_Puissance4.v_Joueur1 = inputPseudoPlayer1.Text;
-                v_Puissance4.v_Joueur2 = "Le Bot";
+                v_Puissance4.v_IaStart = checkBoxIaStart.Checked;
+                if (checkBoxIaStart.Checked)
+                {
+                    v_Puissance4.v_Joueur2 = inputPseudoPlayer1.Text.StartsWith("IA ") ? inputPseudoPlayer1.Text.Replace("IA ", "ia") : inputPseudoPlayer1.Text;
+                    v_Puissance4.v_Joueur1 = v_NiveauIa == 0 ? "IA Facile" : (v_NiveauIa == 1 ? "IA Normale" : "IA Difficile");
+                }
+                else
+                {
+                    v_Puissance4.v_Joueur1 = inputPseudoPlayer1.Text.StartsWith("IA ") ? inputPseudoPlayer1.Text.Replace("IA ", "ia") : inputPseudoPlayer1.Text;
+                    v_Puissance4.v_Joueur2 = v_NiveauIa == 0 ? "IA Facile" : (v_NiveauIa == 1 ? "IA Normal" : "IA Difficile");
+                }
                 v_Puissance4.v_difficulty = v_NiveauIa;
             }
 

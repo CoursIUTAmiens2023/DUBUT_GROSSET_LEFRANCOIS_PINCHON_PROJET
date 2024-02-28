@@ -22,6 +22,8 @@ namespace R5._08.Project.Forms.Models
         public int v_NbPawn = 0;
         public int v_difficulty = -1;
 
+        public bool v_IaStart = false;
+
         public puissance4()
         {
             grid = new Grid();
@@ -58,9 +60,9 @@ namespace R5._08.Project.Forms.Models
             return v_Puissance4;
         }
 
-        public string GetPlayerToPlay()
+        public string GetPlayerToPlay(bool reversed = false)
         {
-            return v_CurrentPlayer == 0 ? v_Joueur1 : v_Joueur2;
+            return v_CurrentPlayer == 0 + Convert.ToInt32(reversed) ? v_Joueur1 : v_Joueur2;
         }
 
         public string GetWinnerName()
@@ -107,6 +109,77 @@ namespace R5._08.Project.Forms.Models
             this.v_CurrentPlayer = (this.v_CurrentPlayer + 1) % 2;
 
             return v_NbPawnByCol[col_index] - 1;
+        }
+
+        public double GetScoreCol(int v_Col, bool smart=false, int player = -1, int allowed_recursive = 7, bool reverse = false)
+        {
+            player = player == -1 ? v_CurrentPlayer : player;
+            double EnemyVector1Score = 0.5;
+            double EnemyVector2Score = EnemyVector1Score * 4 + 4;
+            double EnemyVector3Score = EnemyVector2Score * 12 + 1;
+
+            double EmptyTileScore = 0.5;
+            double OwnVector1Score = 1;
+            double OwnVector2Score = (EnemyVector1Score + (smart ? 3 : 0)) * 4;
+            double OwnVector3Score = EnemyVector2Score * 12 + 2;
+
+            if (reverse)
+            {
+                EnemyVector1Score *= -1;
+                EnemyVector2Score *= -1; EnemyVector3Score *= -2;
+                OwnVector3Score *= 2;
+
+            }
+
+            // Récupérer le Y
+            int v_Row = v_NbPawnByCol[v_Col];
+
+            Tile v_Tile = grid.Get(v_Col, v_Row);
+
+            List<Tile> v_Neighbours = v_Tile.GetNeighbors();
+
+            double v_Score = smart ? v_Neighbours.Count * 2 : 0;
+
+            foreach (Tile v_Neighbour in v_Neighbours) {
+                string v_Direction = v_Tile.GetDirection(v_Neighbour);
+                Vecteur v_DirectionalVector = null;
+
+                if (v_Neighbour.v_Player == -1)  {  v_Score += EmptyTileScore; } 
+                else
+                {
+                    foreach (Vecteur v_Vector in v_Neighbour.v_Vectors)
+                    {
+                        if (v_Vector.v_Direction == v_Direction) { v_DirectionalVector = v_Vector; }
+                    }
+                    
+                    if (v_Neighbour.v_Player == player)
+                    {
+                        if (v_DirectionalVector == null) { v_Score += OwnVector1Score; }
+                        else if (v_DirectionalVector.v_Lenght == 2) { v_Score += OwnVector2Score; }
+                        else if (v_DirectionalVector.v_Lenght == 3) { v_Score += OwnVector3Score; }
+                    }
+                    else
+                    {
+                        if (v_DirectionalVector == null) { v_Score += EnemyVector1Score; }
+                        else if (v_DirectionalVector.v_Lenght == 2) { v_Score += EnemyVector2Score; }
+                        else if (v_DirectionalVector.v_Lenght == 3) { v_Score += EnemyVector3Score; }
+                    }
+                }
+            }
+
+            if (!smart || allowed_recursive == 0) { return v_Score; }
+
+            // Regarder si le coup debloquer des coups dangereux
+            foreach (Tile v_Neighbour in v_Neighbours)
+            {
+                if (v_Neighbour.v_Player == -1) {
+                    v_Score += GetScoreCol(v_Neighbour.x, true, allowed_recursive - 1);
+                    v_Score -= GetScoreCol(v_Neighbour.y, true, (player + 1) % 2, allowed_recursive=allowed_recursive - 1, reverse = true);
+                }
+                
+            }
+
+            return v_Score;
         }
 
         public bool CheckIfDraw()

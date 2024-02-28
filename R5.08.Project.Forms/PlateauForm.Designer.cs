@@ -28,340 +28,339 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.plateauJeu = new System.Windows.Forms.TableLayoutPanel();
-            this.lblPlateauTimer = new System.Windows.Forms.Label();
-            this.btnPlateauAbandon = new System.Windows.Forms.Button();
-            this.lblPlateauTour = new System.Windows.Forms.Label();
-            this.lblToPlay = new System.Windows.Forms.Label();
-            this.lblPlayerToPlay = new System.Windows.Forms.Label();
-            this.btnCol1 = new System.Windows.Forms.Button();
-            this.btnCol2 = new System.Windows.Forms.Button();
-            this.btnCol3 = new System.Windows.Forms.Button();
-            this.btnCol6 = new System.Windows.Forms.Button();
-            this.btnCol5 = new System.Windows.Forms.Button();
-            this.btnCol4 = new System.Windows.Forms.Button();
-            this.btnCol7 = new System.Windows.Forms.Button();
-            this.groupBoxWinner = new System.Windows.Forms.GroupBox();
-            this.btnWinnerHome = new System.Windows.Forms.Button();
-            this.btnWinnerQuitter = new System.Windows.Forms.Button();
-            this.btnWinnerPlay = new System.Windows.Forms.Button();
-            this.lblWinner = new System.Windows.Forms.Label();
-            this.lblCongrats = new System.Windows.Forms.Label();
-            this.groupBoxWinner.SuspendLayout();
-            this.SuspendLayout();
+            plateauJeu = new TableLayoutPanel();
+            lblPlateauTimer = new Label();
+            btnPlateauAbandon = new Button();
+            lblPlateauTour = new Label();
+            lblToPlay = new Label();
+            lblPlayerToPlay = new Label();
+            btnCol1 = new Button();
+            btnCol2 = new Button();
+            btnCol3 = new Button();
+            btnCol6 = new Button();
+            btnCol5 = new Button();
+            btnCol4 = new Button();
+            btnCol7 = new Button();
+            groupBoxWinner = new GroupBox();
+            btnWinnerHome = new Button();
+            btnWinnerQuitter = new Button();
+            btnWinnerPlay = new Button();
+            lblWinner = new Label();
+            lblCongrats = new Label();
+            groupBoxWinner.SuspendLayout();
+            SuspendLayout();
             // 
             // plateauJeu
             // 
-            this.plateauJeu.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Outset;
-            this.plateauJeu.ColumnCount = 7;
-            this.plateauJeu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.plateauJeu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
-            this.plateauJeu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
-            this.plateauJeu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
-            this.plateauJeu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.71951F));
-            this.plateauJeu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.63415F));
-            this.plateauJeu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.02439F));
-            this.plateauJeu.Location = new System.Drawing.Point(444, 129);
-            this.plateauJeu.Margin = new System.Windows.Forms.Padding(4);
-            this.plateauJeu.Name = "plateauJeu";
-            this.plateauJeu.RowCount = 6;
-            this.plateauJeu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.plateauJeu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.46392F));
-            this.plateauJeu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.18213F));
-            this.plateauJeu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.plateauJeu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.plateauJeu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.plateauJeu.Size = new System.Drawing.Size(385, 338);
-            this.plateauJeu.TabIndex = 3;
+            plateauJeu.CellBorderStyle = TableLayoutPanelCellBorderStyle.Outset;
+            plateauJeu.ColumnCount = 7;
+            plateauJeu.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 14.28571F));
+            plateauJeu.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 14.28572F));
+            plateauJeu.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 14.28572F));
+            plateauJeu.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 14.28572F));
+            plateauJeu.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 13.71951F));
+            plateauJeu.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 14.63415F));
+            plateauJeu.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 14.02439F));
+            plateauJeu.Location = new Point(507, 172);
+            plateauJeu.Margin = new Padding(5, 5, 5, 5);
+            plateauJeu.Name = "plateauJeu";
+            plateauJeu.RowCount = 6;
+            plateauJeu.RowStyles.Add(new RowStyle(SizeType.Percent, 16.66667F));
+            plateauJeu.RowStyles.Add(new RowStyle(SizeType.Percent, 15.46392F));
+            plateauJeu.RowStyles.Add(new RowStyle(SizeType.Percent, 17.18213F));
+            plateauJeu.RowStyles.Add(new RowStyle(SizeType.Percent, 16.66667F));
+            plateauJeu.RowStyles.Add(new RowStyle(SizeType.Percent, 16.66667F));
+            plateauJeu.RowStyles.Add(new RowStyle(SizeType.Percent, 16.66667F));
+            plateauJeu.Size = new Size(440, 451);
+            plateauJeu.TabIndex = 3;
             // 
             // lblPlateauTimer
             // 
-            this.lblPlateauTimer.AutoSize = true;
-            this.lblPlateauTimer.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblPlateauTimer.Location = new System.Drawing.Point(8, 10);
-            this.lblPlateauTimer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblPlateauTimer.Name = "lblPlateauTimer";
-            this.lblPlateauTimer.Size = new System.Drawing.Size(142, 25);
-            this.lblPlateauTimer.TabIndex = 4;
-            this.lblPlateauTimer.Text = "Temps écoulé : 0 secondes";
+            lblPlateauTimer.AutoSize = true;
+            lblPlateauTimer.Font = new Font("Verdana", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            lblPlateauTimer.Location = new Point(9, 13);
+            lblPlateauTimer.Margin = new Padding(5, 0, 5, 0);
+            lblPlateauTimer.Name = "lblPlateauTimer";
+            lblPlateauTimer.Size = new Size(353, 31);
+            lblPlateauTimer.TabIndex = 4;
+            lblPlateauTimer.Text = "Temps écoulé : 0 secondes";
             // 
             // btnPlateauAbandon
             // 
-            this.btnPlateauAbandon.AutoSize = true;
-            this.btnPlateauAbandon.BackColor = System.Drawing.Color.LightCoral;
-            this.btnPlateauAbandon.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPlateauAbandon.FlatAppearance.BorderSize = 0;
-            this.btnPlateauAbandon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPlateauAbandon.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnPlateauAbandon.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnPlateauAbandon.Location = new System.Drawing.Point(14, 487);
-            this.btnPlateauAbandon.Margin = new System.Windows.Forms.Padding(4);
-            this.btnPlateauAbandon.Name = "btnPlateauAbandon";
-            this.btnPlateauAbandon.Padding = new System.Windows.Forms.Padding(18, 0, 18, 0);
-            this.btnPlateauAbandon.Size = new System.Drawing.Size(136, 31);
-            this.btnPlateauAbandon.TabIndex = 6;
-            this.btnPlateauAbandon.Text = "Abandonner";
-            this.btnPlateauAbandon.UseVisualStyleBackColor = false;
-            this.btnPlateauAbandon.Click += new System.EventHandler(this.btnPlateauAbandon_Click);
+            btnPlateauAbandon.AutoSize = true;
+            btnPlateauAbandon.BackColor = Color.LightCoral;
+            btnPlateauAbandon.Cursor = Cursors.Hand;
+            btnPlateauAbandon.FlatAppearance.BorderSize = 0;
+            btnPlateauAbandon.FlatStyle = FlatStyle.Flat;
+            btnPlateauAbandon.Font = new Font("Verdana", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            btnPlateauAbandon.ImageAlign = ContentAlignment.MiddleRight;
+            btnPlateauAbandon.Location = new Point(16, 649);
+            btnPlateauAbandon.Margin = new Padding(5, 5, 5, 5);
+            btnPlateauAbandon.Name = "btnPlateauAbandon";
+            btnPlateauAbandon.Padding = new Padding(21, 0, 21, 0);
+            btnPlateauAbandon.Size = new Size(155, 41);
+            btnPlateauAbandon.TabIndex = 6;
+            btnPlateauAbandon.Text = "Abandonner";
+            btnPlateauAbandon.UseVisualStyleBackColor = false;
+            btnPlateauAbandon.Click += btnPlateauAbandon_Click;
             // 
             // lblPlateauTour
             // 
-            this.lblPlateauTour.AutoSize = true;
-            this.lblPlateauTour.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblPlateauTour.Location = new System.Drawing.Point(67, 171);
-            this.lblPlateauTour.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblPlateauTour.Name = "lblPlateauTour";
-            this.lblPlateauTour.Size = new System.Drawing.Size(126, 25);
-            this.lblPlateauTour.TabIndex = 7;
-            this.lblPlateauTour.Text = "Au tour de ";
+            lblPlateauTour.AutoSize = true;
+            lblPlateauTour.Font = new Font("Verdana", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            lblPlateauTour.Location = new Point(77, 228);
+            lblPlateauTour.Margin = new Padding(5, 0, 5, 0);
+            lblPlateauTour.Name = "lblPlateauTour";
+            lblPlateauTour.Size = new Size(157, 31);
+            lblPlateauTour.TabIndex = 7;
+            lblPlateauTour.Text = "Au tour de ";
             // 
             // lblToPlay
             // 
-            this.lblToPlay.AutoSize = true;
-            this.lblToPlay.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblToPlay.Location = new System.Drawing.Point(67, 279);
-            this.lblToPlay.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblToPlay.Name = "lblToPlay";
-            this.lblToPlay.Size = new System.Drawing.Size(96, 25);
-            this.lblToPlay.TabIndex = 8;
-            this.lblToPlay.Text = "de jouer";
+            lblToPlay.AutoSize = true;
+            lblToPlay.Font = new Font("Verdana", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            lblToPlay.Location = new Point(77, 372);
+            lblToPlay.Margin = new Padding(5, 0, 5, 0);
+            lblToPlay.Name = "lblToPlay";
+            lblToPlay.Size = new Size(120, 31);
+            lblToPlay.TabIndex = 8;
+            lblToPlay.Text = "de jouer";
             // 
             // lblPlayerToPlay
             // 
-            this.lblPlayerToPlay.AutoSize = true;
-            this.lblPlayerToPlay.Font = new System.Drawing.Font("Verdana", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblPlayerToPlay.Location = new System.Drawing.Point(112, 220);
-            this.lblPlayerToPlay.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblPlayerToPlay.Name = "lblPlayerToPlay";
-            this.lblPlayerToPlay.Size = new System.Drawing.Size(150, 32);
-            this.lblPlayerToPlay.TabIndex = 9;
-            this.lblPlayerToPlay.Text = "JOUEUR 1";
+            lblPlayerToPlay.AutoSize = true;
+            lblPlayerToPlay.Font = new Font("Verdana", 20F, FontStyle.Regular, GraphicsUnit.Point);
+            lblPlayerToPlay.Location = new Point(128, 293);
+            lblPlayerToPlay.Margin = new Padding(5, 0, 5, 0);
+            lblPlayerToPlay.Name = "lblPlayerToPlay";
+            lblPlayerToPlay.Size = new Size(190, 41);
+            lblPlayerToPlay.TabIndex = 9;
+            lblPlayerToPlay.Text = "JOUEUR 1";
             // 
             // btnCol1
             // 
-            this.btnCol1.Location = new System.Drawing.Point(447, 75);
-            this.btnCol1.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCol1.Name = "btnCol1";
-            this.btnCol1.Size = new System.Drawing.Size(53, 47);
-            this.btnCol1.TabIndex = 10;
-            this.btnCol1.Text = "v";
-            this.btnCol1.UseVisualStyleBackColor = true;
-            this.btnCol1.Click += new System.EventHandler(this.buttonColonne_Click);
+            btnCol1.Location = new Point(511, 100);
+            btnCol1.Margin = new Padding(5, 5, 5, 5);
+            btnCol1.Name = "btnCol1";
+            btnCol1.Size = new Size(61, 63);
+            btnCol1.TabIndex = 10;
+            btnCol1.Text = "v";
+            btnCol1.UseVisualStyleBackColor = true;
+            btnCol1.Click += buttonColonne_Click;
             // 
             // btnCol2
             // 
-            this.btnCol2.Location = new System.Drawing.Point(501, 75);
-            this.btnCol2.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCol2.Name = "btnCol2";
-            this.btnCol2.Size = new System.Drawing.Size(53, 47);
-            this.btnCol2.TabIndex = 11;
-            this.btnCol2.Text = "v";
-            this.btnCol2.UseVisualStyleBackColor = true;
-            this.btnCol2.Click += new System.EventHandler(this.buttonColonne_Click);
+            btnCol2.Location = new Point(573, 100);
+            btnCol2.Margin = new Padding(5, 5, 5, 5);
+            btnCol2.Name = "btnCol2";
+            btnCol2.Size = new Size(61, 63);
+            btnCol2.TabIndex = 11;
+            btnCol2.Text = "v";
+            btnCol2.UseVisualStyleBackColor = true;
+            btnCol2.Click += buttonColonne_Click;
             // 
             // btnCol3
             // 
-            this.btnCol3.Location = new System.Drawing.Point(556, 75);
-            this.btnCol3.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCol3.Name = "btnCol3";
-            this.btnCol3.Size = new System.Drawing.Size(53, 47);
-            this.btnCol3.TabIndex = 12;
-            this.btnCol3.Text = "v";
-            this.btnCol3.UseVisualStyleBackColor = true;
-            this.btnCol3.Click += new System.EventHandler(this.buttonColonne_Click);
+            btnCol3.Location = new Point(635, 100);
+            btnCol3.Margin = new Padding(5, 5, 5, 5);
+            btnCol3.Name = "btnCol3";
+            btnCol3.Size = new Size(61, 63);
+            btnCol3.TabIndex = 12;
+            btnCol3.Text = "v";
+            btnCol3.UseVisualStyleBackColor = true;
+            btnCol3.Click += buttonColonne_Click;
             // 
             // btnCol6
             // 
-            this.btnCol6.Location = new System.Drawing.Point(718, 75);
-            this.btnCol6.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCol6.Name = "btnCol6";
-            this.btnCol6.Size = new System.Drawing.Size(53, 47);
-            this.btnCol6.TabIndex = 15;
-            this.btnCol6.Text = "v";
-            this.btnCol6.UseVisualStyleBackColor = true;
-            this.btnCol6.Click += new System.EventHandler(this.buttonColonne_Click);
+            btnCol6.Location = new Point(821, 100);
+            btnCol6.Margin = new Padding(5, 5, 5, 5);
+            btnCol6.Name = "btnCol6";
+            btnCol6.Size = new Size(61, 63);
+            btnCol6.TabIndex = 15;
+            btnCol6.Text = "v";
+            btnCol6.UseVisualStyleBackColor = true;
+            btnCol6.Click += buttonColonne_Click;
             // 
             // btnCol5
             // 
-            this.btnCol5.Location = new System.Drawing.Point(664, 75);
-            this.btnCol5.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCol5.Name = "btnCol5";
-            this.btnCol5.Size = new System.Drawing.Size(53, 47);
-            this.btnCol5.TabIndex = 14;
-            this.btnCol5.Text = "v";
-            this.btnCol5.UseVisualStyleBackColor = true;
-            this.btnCol5.Click += new System.EventHandler(this.buttonColonne_Click);
+            btnCol5.Location = new Point(759, 100);
+            btnCol5.Margin = new Padding(5, 5, 5, 5);
+            btnCol5.Name = "btnCol5";
+            btnCol5.Size = new Size(61, 63);
+            btnCol5.TabIndex = 14;
+            btnCol5.Text = "v";
+            btnCol5.UseVisualStyleBackColor = true;
+            btnCol5.Click += buttonColonne_Click;
             // 
             // btnCol4
             // 
-            this.btnCol4.Location = new System.Drawing.Point(609, 75);
-            this.btnCol4.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCol4.Name = "btnCol4";
-            this.btnCol4.Size = new System.Drawing.Size(53, 47);
-            this.btnCol4.TabIndex = 13;
-            this.btnCol4.Text = "v";
-            this.btnCol4.UseVisualStyleBackColor = true;
-            this.btnCol4.Click += new System.EventHandler(this.buttonColonne_Click);
+            btnCol4.Location = new Point(696, 100);
+            btnCol4.Margin = new Padding(5, 5, 5, 5);
+            btnCol4.Name = "btnCol4";
+            btnCol4.Size = new Size(61, 63);
+            btnCol4.TabIndex = 13;
+            btnCol4.Text = "v";
+            btnCol4.UseVisualStyleBackColor = true;
+            btnCol4.Click += buttonColonne_Click;
             // 
             // btnCol7
             // 
-            this.btnCol7.Location = new System.Drawing.Point(774, 75);
-            this.btnCol7.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCol7.Name = "btnCol7";
-            this.btnCol7.Size = new System.Drawing.Size(53, 47);
-            this.btnCol7.TabIndex = 16;
-            this.btnCol7.Text = "v";
-            this.btnCol7.UseVisualStyleBackColor = true;
-            this.btnCol7.Click += new System.EventHandler(this.buttonColonne_Click);
+            btnCol7.Location = new Point(885, 100);
+            btnCol7.Margin = new Padding(5, 5, 5, 5);
+            btnCol7.Name = "btnCol7";
+            btnCol7.Size = new Size(61, 63);
+            btnCol7.TabIndex = 16;
+            btnCol7.Text = "v";
+            btnCol7.UseVisualStyleBackColor = true;
+            btnCol7.Click += buttonColonne_Click;
             // 
             // groupBoxWinner
             // 
-            this.groupBoxWinner.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxWinner.Controls.Add(this.btnWinnerHome);
-            this.groupBoxWinner.Controls.Add(this.btnWinnerQuitter);
-            this.groupBoxWinner.Controls.Add(this.btnWinnerPlay);
-            this.groupBoxWinner.Controls.Add(this.lblWinner);
-            this.groupBoxWinner.Controls.Add(this.lblCongrats);
-            this.groupBoxWinner.Font = new System.Drawing.Font("Verdana", 1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBoxWinner.Location = new System.Drawing.Point(74, 154);
-            this.groupBoxWinner.Margin = new System.Windows.Forms.Padding(4);
-            this.groupBoxWinner.Name = "groupBoxWinner";
-            this.groupBoxWinner.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBoxWinner.Size = new System.Drawing.Size(766, 224);
-            this.groupBoxWinner.TabIndex = 17;
-            this.groupBoxWinner.TabStop = false;
-            this.groupBoxWinner.Visible = false;
+            groupBoxWinner.BackColor = Color.Transparent;
+            groupBoxWinner.Controls.Add(btnWinnerHome);
+            groupBoxWinner.Controls.Add(btnWinnerQuitter);
+            groupBoxWinner.Controls.Add(btnWinnerPlay);
+            groupBoxWinner.Controls.Add(lblWinner);
+            groupBoxWinner.Controls.Add(lblCongrats);
+            groupBoxWinner.Font = new Font("Verdana", 1F, FontStyle.Regular, GraphicsUnit.Point);
+            groupBoxWinner.Location = new Point(16, 205);
+            groupBoxWinner.Margin = new Padding(5, 5, 5, 5);
+            groupBoxWinner.Name = "groupBoxWinner";
+            groupBoxWinner.Padding = new Padding(5, 5, 5, 5);
+            groupBoxWinner.Size = new Size(481, 299);
+            groupBoxWinner.TabIndex = 17;
+            groupBoxWinner.TabStop = false;
+            groupBoxWinner.Visible = false;
             // 
             // btnWinnerHome
             // 
-            this.btnWinnerHome.AutoSize = true;
-            this.btnWinnerHome.BackColor = System.Drawing.Color.LightGray;
-            this.btnWinnerHome.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnWinnerHome.FlatAppearance.BorderSize = 0;
-            this.btnWinnerHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnWinnerHome.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnWinnerHome.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnWinnerHome.Location = new System.Drawing.Point(298, 161);
-            this.btnWinnerHome.Margin = new System.Windows.Forms.Padding(4);
-            this.btnWinnerHome.Name = "btnWinnerHome";
-            this.btnWinnerHome.Padding = new System.Windows.Forms.Padding(18, 0, 18, 0);
-            this.btnWinnerHome.Size = new System.Drawing.Size(171, 31);
-            this.btnWinnerHome.TabIndex = 19;
-            this.btnWinnerHome.Text = "Menu Principal";
-            this.btnWinnerHome.UseVisualStyleBackColor = false;
-            this.btnWinnerHome.Click += new System.EventHandler(this.btnWinnerHome_Click);
+            btnWinnerHome.AutoSize = true;
+            btnWinnerHome.BackColor = Color.LightGray;
+            btnWinnerHome.Cursor = Cursors.Hand;
+            btnWinnerHome.FlatAppearance.BorderSize = 0;
+            btnWinnerHome.FlatStyle = FlatStyle.Flat;
+            btnWinnerHome.Font = new Font("Verdana", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            btnWinnerHome.ImageAlign = ContentAlignment.MiddleRight;
+            btnWinnerHome.Location = new Point(143, 145);
+            btnWinnerHome.Margin = new Padding(5, 5, 5, 5);
+            btnWinnerHome.Name = "btnWinnerHome";
+            btnWinnerHome.Padding = new Padding(21, 0, 21, 0);
+            btnWinnerHome.Size = new Size(158, 41);
+            btnWinnerHome.TabIndex = 19;
+            btnWinnerHome.Text = "Menu Principal";
+            btnWinnerHome.UseVisualStyleBackColor = false;
+            btnWinnerHome.Click += btnWinnerHome_Click;
             // 
             // btnWinnerQuitter
             // 
-            this.btnWinnerQuitter.AutoSize = true;
-            this.btnWinnerQuitter.BackColor = System.Drawing.Color.LightCoral;
-            this.btnWinnerQuitter.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnWinnerQuitter.FlatAppearance.BorderSize = 0;
-            this.btnWinnerQuitter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnWinnerQuitter.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnWinnerQuitter.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnWinnerQuitter.Location = new System.Drawing.Point(486, 161);
-            this.btnWinnerQuitter.Margin = new System.Windows.Forms.Padding(4);
-            this.btnWinnerQuitter.Name = "btnWinnerQuitter";
-            this.btnWinnerQuitter.Padding = new System.Windows.Forms.Padding(18, 0, 18, 0);
-            this.btnWinnerQuitter.Size = new System.Drawing.Size(136, 31);
-            this.btnWinnerQuitter.TabIndex = 18;
-            this.btnWinnerQuitter.Text = "Quitter";
-            this.btnWinnerQuitter.UseVisualStyleBackColor = false;
-            this.btnWinnerQuitter.Click += new System.EventHandler(this.btnWinnerQuitter_Click);
+            btnWinnerQuitter.AutoSize = true;
+            btnWinnerQuitter.BackColor = Color.LightCoral;
+            btnWinnerQuitter.Cursor = Cursors.Hand;
+            btnWinnerQuitter.FlatAppearance.BorderSize = 0;
+            btnWinnerQuitter.FlatStyle = FlatStyle.Flat;
+            btnWinnerQuitter.Font = new Font("Verdana", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            btnWinnerQuitter.ImageAlign = ContentAlignment.MiddleRight;
+            btnWinnerQuitter.Location = new Point(311, 145);
+            btnWinnerQuitter.Margin = new Padding(5, 5, 5, 5);
+            btnWinnerQuitter.Name = "btnWinnerQuitter";
+            btnWinnerQuitter.Padding = new Padding(21, 0, 21, 0);
+            btnWinnerQuitter.Size = new Size(155, 41);
+            btnWinnerQuitter.TabIndex = 18;
+            btnWinnerQuitter.Text = "Quitter";
+            btnWinnerQuitter.UseVisualStyleBackColor = false;
+            btnWinnerQuitter.Click += btnWinnerQuitter_Click;
             // 
             // btnWinnerPlay
             // 
-            this.btnWinnerPlay.AutoSize = true;
-            this.btnWinnerPlay.BackColor = System.Drawing.Color.LightGreen;
-            this.btnWinnerPlay.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnWinnerPlay.FlatAppearance.BorderSize = 0;
-            this.btnWinnerPlay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnWinnerPlay.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnWinnerPlay.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnWinnerPlay.Location = new System.Drawing.Point(144, 161);
-            this.btnWinnerPlay.Margin = new System.Windows.Forms.Padding(4);
-            this.btnWinnerPlay.Name = "btnWinnerPlay";
-            this.btnWinnerPlay.Padding = new System.Windows.Forms.Padding(18, 0, 18, 0);
-            this.btnWinnerPlay.Size = new System.Drawing.Size(136, 31);
-            this.btnWinnerPlay.TabIndex = 7;
-            this.btnWinnerPlay.Text = "Rejouer";
-            this.btnWinnerPlay.UseVisualStyleBackColor = false;
-            this.btnWinnerPlay.Click += new System.EventHandler(this.btnWinnerPlay_Click);
+            btnWinnerPlay.AutoSize = true;
+            btnWinnerPlay.BackColor = Color.LightGreen;
+            btnWinnerPlay.Cursor = Cursors.Hand;
+            btnWinnerPlay.FlatAppearance.BorderSize = 0;
+            btnWinnerPlay.FlatStyle = FlatStyle.Flat;
+            btnWinnerPlay.Font = new Font("Verdana", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            btnWinnerPlay.ImageAlign = ContentAlignment.MiddleRight;
+            btnWinnerPlay.Location = new Point(10, 145);
+            btnWinnerPlay.Margin = new Padding(5, 5, 5, 5);
+            btnWinnerPlay.Name = "btnWinnerPlay";
+            btnWinnerPlay.Padding = new Padding(21, 0, 21, 0);
+            btnWinnerPlay.Size = new Size(124, 41);
+            btnWinnerPlay.TabIndex = 7;
+            btnWinnerPlay.Text = "Rejouer";
+            btnWinnerPlay.UseVisualStyleBackColor = false;
+            btnWinnerPlay.Click += btnWinnerPlay_Click;
             // 
             // lblWinner
             // 
-            this.lblWinner.Font = new System.Drawing.Font("Verdana", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblWinner.Location = new System.Drawing.Point(84, 52);
-            this.lblWinner.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblWinner.Name = "lblWinner";
-            this.lblWinner.Size = new System.Drawing.Size(597, 38);
-            this.lblWinner.TabIndex = 1;
-            this.lblWinner.Text = "Le JOUEUR 1 a gagné !";
-            this.lblWinner.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            lblWinner.Font = new Font("Verdana", 20F, FontStyle.Regular, GraphicsUnit.Point);
+            lblWinner.Location = new Point(2, 11);
+            lblWinner.Margin = new Padding(5, 0, 5, 0);
+            lblWinner.Name = "lblWinner";
+            lblWinner.Size = new Size(476, 51);
+            lblWinner.TabIndex = 1;
+            lblWinner.Text = "Le JOUEUR 1 a gagné !";
+            lblWinner.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblCongrats
             // 
-            this.lblCongrats.AutoSize = true;
-            this.lblCongrats.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblCongrats.Location = new System.Drawing.Point(288, 112);
-            this.lblCongrats.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblCongrats.Name = "lblCongrats";
-            this.lblCongrats.Size = new System.Drawing.Size(181, 17);
-            this.lblCongrats.TabIndex = 0;
-            this.lblCongrats.Text = "Bien jouer aux joueurs !";
+            lblCongrats.AutoSize = true;
+            lblCongrats.Font = new Font("Verdana", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            lblCongrats.Location = new Point(140, 68);
+            lblCongrats.Margin = new Padding(5, 0, 5, 0);
+            lblCongrats.Name = "lblCongrats";
+            lblCongrats.Size = new Size(217, 20);
+            lblCongrats.TabIndex = 0;
+            lblCongrats.Text = "Bien jouer aux joueurs !";
             // 
             // PlateauForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(914, 532);
-            this.Controls.Add(this.groupBoxWinner);
-            this.Controls.Add(this.btnCol7);
-            this.Controls.Add(this.btnCol6);
-            this.Controls.Add(this.btnCol5);
-            this.Controls.Add(this.btnCol4);
-            this.Controls.Add(this.btnCol3);
-            this.Controls.Add(this.btnCol2);
-            this.Controls.Add(this.btnCol1);
-            this.Controls.Add(this.lblPlayerToPlay);
-            this.Controls.Add(this.lblToPlay);
-            this.Controls.Add(this.lblPlateauTour);
-            this.Controls.Add(this.btnPlateauAbandon);
-            this.Controls.Add(this.lblPlateauTimer);
-            this.Controls.Add(this.plateauJeu);
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "PlateauForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Puissance 4";
-            this.Load += new System.EventHandler(this.PlateauForm_Load);
-            this.groupBoxWinner.ResumeLayout(false);
-            this.groupBoxWinner.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1045, 709);
+            Controls.Add(groupBoxWinner);
+            Controls.Add(btnCol7);
+            Controls.Add(btnCol6);
+            Controls.Add(btnCol5);
+            Controls.Add(btnCol4);
+            Controls.Add(btnCol3);
+            Controls.Add(btnCol2);
+            Controls.Add(btnCol1);
+            Controls.Add(lblPlayerToPlay);
+            Controls.Add(lblToPlay);
+            Controls.Add(lblPlateauTour);
+            Controls.Add(btnPlateauAbandon);
+            Controls.Add(lblPlateauTimer);
+            Controls.Add(plateauJeu);
+            Margin = new Padding(5, 5, 5, 5);
+            Name = "PlateauForm";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Puissance 4";
+            Load += PlateauForm_Load;
+            groupBoxWinner.ResumeLayout(false);
+            groupBoxWinner.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
-        private System.Windows.Forms.TableLayoutPanel plateauJeu;
-        private System.Windows.Forms.Label lblPlateauTimer;
-        private System.Windows.Forms.Button btnPlateauAbandon;
-        private System.Windows.Forms.Label lblPlateauTour;
-        private System.Windows.Forms.Label lblToPlay;
-        private System.Windows.Forms.Label lblPlayerToPlay;
-        private System.Windows.Forms.Button btnCol1;
-        private System.Windows.Forms.Button btnCol2;
-        private System.Windows.Forms.Button btnCol3;
-        private System.Windows.Forms.Button btnCol6;
-        private System.Windows.Forms.Button btnCol5;
-        private System.Windows.Forms.Button btnCol4;
-        private System.Windows.Forms.Button btnCol7;
-        private System.Windows.Forms.GroupBox groupBoxWinner;
-        private System.Windows.Forms.Label lblWinner;
-        private System.Windows.Forms.Label lblCongrats;
-        private System.Windows.Forms.Button btnWinnerPlay;
-        private System.Windows.Forms.Button btnWinnerQuitter;
-        private System.Windows.Forms.Button btnWinnerHome;
+        private TableLayoutPanel plateauJeu;
+        private Label lblPlateauTimer;
+        private Button btnPlateauAbandon;
+        private Label lblPlateauTour;
+        private Label lblToPlay;
+        private Label lblPlayerToPlay;
+        private Button btnCol1;
+        private Button btnCol2;
+        private Button btnCol3;
+        private Button btnCol6;
+        private Button btnCol5;
+        private Button btnCol4;
+        private Button btnCol7;
+        private GroupBox groupBoxWinner;
+        private Label lblWinner;
+        private Label lblCongrats;
+        private Button btnWinnerPlay;
+        private Button btnWinnerQuitter;
+        private Button btnWinnerHome;
     }
 }

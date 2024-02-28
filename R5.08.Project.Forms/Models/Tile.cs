@@ -26,13 +26,11 @@ namespace R5._08.Project.Forms.Models
             this.v_GridId = v_GridId;
         }
 
-        /** Permet de mettre à jour un les vecteurs de la tailles selon ses voisins; on passe en paramètre la nouvelle tile **/
-        public void UpdateVector(Tile p_tile)
-        {   
-            if (p_tile.v_Player != v_Player || p_tile.v_Player == -1 || v_Player == -1) { return; }
-            int v_XDirection = p_tile.x - this.x; // -1: à gauche  | 0: même niveau | 1: à droite
-            int v_YDirection = p_tile.y - this.y; // -1: au dessus | 0: même niveau | 1: en dessous
-            Console.WriteLine("update: " + this.x + ", " + this.y + " to " + p_tile.x + ", " + p_tile.y);
+        public string GetDirection(Tile p_Tile)
+        {
+            int v_XDirection = p_Tile.x - this.x; // -1: à gauche  | 0: même niveau | 1: à droite
+            int v_YDirection = p_Tile.y - this.y; // -1: au dessus | 0: même niveau | 1: en dessous
+
             string v_Direction;
 
             // { "Vertical", "Horizontale", "Diagonale-Gauche", "Diagonale-Droite" }
@@ -40,21 +38,32 @@ namespace R5._08.Project.Forms.Models
             {
                 v_Direction = "Diagonale-Gauche";
 
-            } else if (v_XDirection == -1 && v_YDirection == 0 || v_XDirection == 1 && v_YDirection == 0)
+            }
+            else if (v_XDirection == -1 && v_YDirection == 0 || v_XDirection == 1 && v_YDirection == 0)
             {
                 v_Direction = "Horizontale";
 
-            } else if (v_XDirection == -1 && v_YDirection == 1 || v_XDirection == 1 && v_YDirection == -1)
+            }
+            else if (v_XDirection == -1 && v_YDirection == 1 || v_XDirection == 1 && v_YDirection == -1)
             {
                 v_Direction = "Diagonale-Droite";
 
-            } else if (v_XDirection == 0 && v_YDirection == -1 || v_XDirection == 0 && v_YDirection == 1)
+            }
+            else if (v_XDirection == 0 && v_YDirection == -1 || v_XDirection == 0 && v_YDirection == 1)
             {
                 v_Direction = "Verticale";
 
-            } else { return; }
-            Console.WriteLine(v_Direction + ": " + v_XDirection + ", " + v_YDirection);
-            Console.WriteLine("Update direction " +  v_Direction);
+            }
+            else { throw(new Exception("Direction invalide")); }
+
+            return v_Direction;
+        }
+
+        /** Permet de mettre à jour un les vecteurs de la tailles selon ses voisins; on passe en paramètre la nouvelle tile **/
+        public void UpdateVector(Tile p_tile)
+        {   
+            if (p_tile.v_Player != v_Player || p_tile.v_Player == -1 || v_Player == -1) { return; }
+            string v_Direction = GetDirection(p_tile);
 
             // Metre à jour les vecteurs existants
             foreach (Vecteur vector in this.v_Vectors)

@@ -27,6 +27,30 @@ namespace R5._08.Project.Forms
 
         public static int EasyModePlay(puissance4 v_Puissance4)
         {
+            List<int> v_AvailablesColumns = v_Puissance4.GetAvailableCols();
+            double v_BestScore = -1;
+            int v_BestCol = -1;
+            List<double> v_AllScore = new List<double>();
+            Random rd = new Random();
+
+            int v_ErrorFactor = 10;
+
+            foreach (int v_Col in v_AvailablesColumns)
+            {
+                double v_ScoreCol = v_Puissance4.GetScoreCol(v_Col) + rd.Next(v_ErrorFactor) / 2.0;
+                v_AllScore.Add(v_ScoreCol);
+                if (v_ScoreCol > v_BestScore)
+                {
+                    v_BestCol = v_Col;
+                    v_BestScore = v_ScoreCol;
+                }
+            }
+
+            return v_BestCol;
+        }
+
+        public static int NormalModePlay(puissance4 v_Puissance4)
+        {
             // Faire jouer l'IA.
             List<int> v_AvailablesColumns = v_Puissance4.GetAvailableCols();
 
@@ -62,7 +86,7 @@ namespace R5._08.Project.Forms
                     if (tmp_grid.v_Winner != -1)
                     {
                         string v_PseudoPlayerWinner = tmp_grid.GetWinnerName();
-                        if (v_PseudoPlayerWinner == "Le Bot")
+                        if (v_PseudoPlayerWinner == "IA Normale")
                         {
                             if (tmp_grid.v_NbPawn - v_Puissance4.v_NbPawn == 1)
                             {
@@ -105,5 +129,102 @@ namespace R5._08.Project.Forms
             return v_BestColumnForAi;
         }
 
+        public static int HardModePlay(puissance4 v_Puissance4)
+        {
+            List<int> v_AvailablesColumns = v_Puissance4.GetAvailableCols();
+
+            Random rd = new Random();
+            List<float> v_WinrateForAi;
+
+            int v_BestColumnForAi = -1;
+            float v_BestScoreForAi = float.NaN;
+
+            // Obtenir des Winrates pour des coups aléatoires
+            foreach (int MainColToTry in v_AvailablesColumns)
+            {
+                v_WinrateForAi = new List<float>();
+
+                // Générer des grids aléatoires pour récupérer le coups avec la meillieur proba de win
+                for (int grid_number = 0; grid_number < 300; grid_number++)
+                {
+                    puissance4 tmp_grid = (puissance4)v_Puissance4.Clone();
+                    tmp_grid.PlacePawn(MainColToTry);
+                    List<int> v_AvailablesColumnsTmpGrid = tmp_grid.GetAvailableCols();
+
+                    while (v_AvailablesColumnsTmpGrid.Count > 0 && tmp_grid.v_Winner == -1)
+                    {
+                        double v_TotalScore = 0;
+                        List<double> v_AllScore = new List<double>();
+                        foreach (int v_ColToPlay in v_AvailablesColumnsTmpGrid)
+                        {
+                            double v_Score = tmp_grid.GetScoreCol(v_ColToPlay);
+                            v_AllScore.Add(v_Score);
+                            v_TotalScore += v_Score;
+                        }
+
+                        double v_ChoosenScore = rd.Next(Convert.ToInt32(v_TotalScore * 2)) / 2.0;
+
+                        double v_LastScore = 0;
+                        int v_ColIndex = 0;
+                        foreach (double v_ColScore in v_AllScore)
+                        {
+                            if (v_ChoosenScore >= v_LastScore && v_ChoosenScore < v_LastScore + v_ColScore) { break; }
+                            v_ColIndex++;
+                            v_LastScore += v_ColScore;
+                        }
+                        int v_Col = v_AvailablesColumnsTmpGrid[v_ColIndex];
+
+                        tmp_grid.PlacePawn(v_Col);
+
+                        // Mettre à jour la liste des colonnes disponibles
+                        v_AvailablesColumnsTmpGrid = tmp_grid.GetAvailableCols();
+                    }
+
+                    if (tmp_grid.v_Winner != -1)
+                    {
+                        string v_PseudoPlayerWinner = tmp_grid.GetWinnerName();
+                        if (v_PseudoPlayerWinner == "IA Difficile")
+                        {
+                            if (tmp_grid.v_NbPawn - v_Puissance4.v_NbPawn == 1)
+                            {
+                                v_WinrateForAi.Add(10000);
+                            }
+                            else
+                            {
+                                v_WinrateForAi.Add(200 / tmp_grid.v_NbPawn);
+                            }
+                        }
+                        else
+                        {
+                            if (tmp_grid.v_NbPawn - v_Puissance4.v_NbPawn == 2)
+                            {
+                                v_WinrateForAi.Add(-8000);
+                            }
+                            else
+                            {
+                                v_WinrateForAi.Add(-50 + tmp_grid.v_NbPawn);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        // Égalitée
+                        v_WinrateForAi.Add(20);
+                    }
+
+                    Grid.ALL_GRIDS.Remove(tmp_grid.grid.c_GridId);
+                }
+
+                // Regarder si jouer ce coup est mieux que le meilleur coup déjà trouvé
+                float v_AvgWinrate = v_WinrateForAi.Average();
+                if (v_BestColumnForAi == -1 || v_BestScoreForAi == float.NaN || v_AvgWinrate > v_BestScoreForAi)
+                {
+                    v_BestColumnForAi = MainColToTry;
+                    v_BestScoreForAi = v_AvgWinrate;
+                }
+            }
+
+            return v_BestColumnForAi;
+        }
     }
 }

@@ -18,6 +18,11 @@ namespace ProjetForm
             InitializeComponent();
             this.v_Puissance4 = p_Puissance4;
             lblPlayerToPlay.Text = p_Puissance4.GetPlayerToPlay();
+
+            if (p_Puissance4.v_IaStart)
+            {
+                aiPlay();
+            }
         }
 
         /// <summary>
@@ -36,21 +41,19 @@ namespace ProjetForm
         /// </summary>
         private void aiPlay()
         {
-            if (v_Puissance4.v_difficulty == 0)
-            {
-                int v_Col = Bot.EasyModePlay(v_Puissance4);
-                PictureBox v_AiPawn = Puissance4Manager.CreatePawn(v_Puissance4);
+            int v_Col = 0;
+            if (v_Puissance4.v_difficulty == 0) { v_Col = Bot.EasyModePlay(v_Puissance4); }
+            else if (v_Puissance4.v_difficulty == 1) { v_Col = Bot.NormalModePlay(v_Puissance4); } 
+            else { v_Col = Bot.HardModePlay(v_Puissance4); }
 
-                try
-                {
-                    int v_Row = v_Puissance4.PlacePawn(v_Col);
-                    AddPawnOnBoard(v_AiPawn, v_Col, v_Row);
-                } catch (Exception e) { }
-                
-            } else
-            {
+            PictureBox v_AiPawn = Puissance4Manager.CreatePawn(v_Puissance4);
 
+            try
+            {
+                int v_Row = v_Puissance4.PlacePawn(v_Col);
+                AddPawnOnBoard(v_AiPawn, v_Col, v_Row);
             }
+            catch (Exception e) { }
         }
 
         /// <summary>
@@ -68,10 +71,11 @@ namespace ProjetForm
             v_BtnColList.ForEach((btn) => btn.Enabled = false);
             btnPlateauAbandon.Enabled = false;
 
-            if(p_Draw)
+            if (p_Draw)
             {
                 lblWinner.Text = "Égalité !";
-            } else
+            }
+            else
             {
                 lblWinner.Text = p_PseudoPlayerWinner + " a gagné !";
             }
@@ -122,7 +126,8 @@ namespace ProjetForm
             v_PlayerPawn = Puissance4Manager.CreatePawn(v_Puissance4);
 
 
-            try {
+            try
+            {
                 int v_RowPlayed = v_Puissance4.PlacePawn(v_ColumnPlayed);
                 AddPawnOnBoard(v_PlayerPawn, v_ColumnPlayed, v_RowPlayed);
 
@@ -171,7 +176,8 @@ namespace ProjetForm
                     lblPlayerToPlay.Text = v_Puissance4.GetPlayerToPlay();
 
                 }
-            } catch (Exception e) { }
+            }
+            catch (Exception e) { }
 
         }
 
@@ -181,7 +187,7 @@ namespace ProjetForm
             {
                 //Create object to store data
                 Scoreboard v_Scoreboard = new();
-                
+
                 //Check if the player already exists in the database
                 string v_Query = $"SELECT * FROM Scoreboard WHERE Name = '{p_Name}'";
                 MySqlCommand v_Command = new(v_Query, DB.m_DBConnection);
@@ -217,7 +223,7 @@ namespace ProjetForm
                 }
 
                 string v_UpsertQuery;
-                if(v_Scoreboard.Id == 0)
+                if (v_Scoreboard.Id == 0)
                 {
                     v_UpsertQuery = $"INSERT INTO Scoreboard (Name, NumberOfGames, NumberOfWins, AverageTime) VALUES ('{v_Scoreboard.Name}',{v_Scoreboard.NumberOfGames},{v_Scoreboard.NumberOfWins},{v_Scoreboard.AverageTime})";
 
@@ -240,7 +246,7 @@ namespace ProjetForm
 
         private void btnPlateauAbandon_Click(object p_Sender, EventArgs p_EventArgs)
         {
-            String playerWinner = v_Puissance4.GetPlayerToPlay();
+            String playerWinner = v_Puissance4.GetPlayerToPlay(true);
             EnableEndScreen(playerWinner, false);
         }
 
