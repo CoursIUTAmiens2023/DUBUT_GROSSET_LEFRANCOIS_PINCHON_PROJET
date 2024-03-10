@@ -28,78 +28,82 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.m_LblHomeTitle = new System.Windows.Forms.Label();
-            this.m_BtnGameModeBack = new System.Windows.Forms.Button();
-            this.m_ScoresGridView = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.m_ScoresGridView)).BeginInit();
-            this.SuspendLayout();
+            m_LblHomeTitle = new Label();
+            m_BtnGameModeBack = new Button();
+            m_ScoresGridView = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)m_ScoresGridView).BeginInit();
+            SuspendLayout();
             // 
-            // lblHomeTitle
+            // m_LblHomeTitle
             // 
-            this.m_LblHomeTitle.AutoSize = true;
-            this.m_LblHomeTitle.Font = new System.Drawing.Font("Verdana", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.m_LblHomeTitle.Location = new System.Drawing.Point(368, 58);
-            this.m_LblHomeTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.m_LblHomeTitle.Name = "lblHomeTitle";
-            this.m_LblHomeTitle.Size = new System.Drawing.Size(154, 48);
-            this.m_LblHomeTitle.TabIndex = 1;
-            this.m_LblHomeTitle.Text = "Scores";
+            m_LblHomeTitle.AutoSize = true;
+            m_LblHomeTitle.Font = new Font("Verdana", 30F, FontStyle.Regular, GraphicsUnit.Point);
+            m_LblHomeTitle.ForeColor = Color.White;
+            m_LblHomeTitle.Location = new Point(380, 58);
+            m_LblHomeTitle.Margin = new Padding(4, 0, 4, 0);
+            m_LblHomeTitle.Name = "m_LblHomeTitle";
+            m_LblHomeTitle.Size = new Size(154, 48);
+            m_LblHomeTitle.TabIndex = 1;
+            m_LblHomeTitle.Text = "Scores";
             // 
-            // btnGameModeBack
+            // m_BtnGameModeBack
             // 
-            this.m_BtnGameModeBack.AutoSize = true;
-            this.m_BtnGameModeBack.BackColor = System.Drawing.Color.LightCoral;
-            this.m_BtnGameModeBack.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.m_BtnGameModeBack.FlatAppearance.BorderSize = 0;
-            this.m_BtnGameModeBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.m_BtnGameModeBack.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.m_BtnGameModeBack.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.m_BtnGameModeBack.Location = new System.Drawing.Point(752, 14);
-            this.m_BtnGameModeBack.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.m_BtnGameModeBack.Name = "btnGameModeBack";
-            this.m_BtnGameModeBack.Padding = new System.Windows.Forms.Padding(35, 0, 35, 0);
-            this.m_BtnGameModeBack.Size = new System.Drawing.Size(148, 31);
-            this.m_BtnGameModeBack.TabIndex = 6;
-            this.m_BtnGameModeBack.Text = "Retour";
-            this.m_BtnGameModeBack.UseVisualStyleBackColor = false;
-            this.m_BtnGameModeBack.Click += new System.EventHandler(this.BtnGameModeBack_Click);
+            m_BtnGameModeBack.AutoSize = true;
+            m_BtnGameModeBack.BackColor = Color.Transparent;
+            m_BtnGameModeBack.Cursor = Cursors.Hand;
+            m_BtnGameModeBack.FlatAppearance.BorderColor = Color.FromArgb(203, 44, 69);
+            m_BtnGameModeBack.FlatStyle = FlatStyle.Flat;
+            m_BtnGameModeBack.Font = new Font("Verdana", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            m_BtnGameModeBack.ForeColor = Color.FromArgb(203, 44, 69);
+            m_BtnGameModeBack.ImageAlign = ContentAlignment.MiddleRight;
+            m_BtnGameModeBack.Location = new Point(752, 14);
+            m_BtnGameModeBack.Margin = new Padding(4, 3, 4, 3);
+            m_BtnGameModeBack.Name = "m_BtnGameModeBack";
+            m_BtnGameModeBack.Padding = new Padding(35, 0, 35, 0);
+            m_BtnGameModeBack.Size = new Size(148, 31);
+            m_BtnGameModeBack.TabIndex = 6;
+            m_BtnGameModeBack.Text = "Retour";
+            m_BtnGameModeBack.UseVisualStyleBackColor = false;
+            m_BtnGameModeBack.Click += BtnGameModeBack_Click;
             // 
-            // scoresGridView
+            // m_ScoresGridView
             // 
-            this.m_ScoresGridView.AllowUserToAddRows = false;
-            this.m_ScoresGridView.AllowUserToDeleteRows = false;
-            this.m_ScoresGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.m_ScoresGridView.Location = new System.Drawing.Point(37, 138);
-            this.m_ScoresGridView.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.m_ScoresGridView.Name = "scoresGridView";
-            this.m_ScoresGridView.ReadOnly = true;
-            this.m_ScoresGridView.Size = new System.Drawing.Size(840, 354);
-            this.m_ScoresGridView.TabIndex = 7;
+            m_ScoresGridView.AllowUserToAddRows = false;
+            m_ScoresGridView.AllowUserToDeleteRows = false;
+            m_ScoresGridView.BackgroundColor = Color.FromArgb(39, 56, 73);
+            m_ScoresGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            m_ScoresGridView.GridColor = Color.White;
+            m_ScoresGridView.Location = new Point(37, 138);
+            m_ScoresGridView.Margin = new Padding(4, 3, 4, 3);
+            m_ScoresGridView.Name = "m_ScoresGridView";
+            m_ScoresGridView.ReadOnly = true;
+            m_ScoresGridView.Size = new Size(840, 354);
+            m_ScoresGridView.TabIndex = 7;
             // 
             // ScoresForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(915, 532);
-            this.Controls.Add(this.m_ScoresGridView);
-            this.Controls.Add(this.m_BtnGameModeBack);
-            this.Controls.Add(this.m_LblHomeTitle);
-            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.Name = "ScoresForm";
-            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Puissance 4";
-            this.Load += new System.EventHandler(ScoresForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.m_ScoresGridView)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(16, 27, 39);
+            ClientSize = new Size(915, 532);
+            Controls.Add(m_ScoresGridView);
+            Controls.Add(m_BtnGameModeBack);
+            Controls.Add(m_LblHomeTitle);
+            Margin = new Padding(4, 3, 4, 3);
+            Name = "ScoresForm";
+            SizeGripStyle = SizeGripStyle.Show;
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Puissance 4";
+            Load += ScoresForm_Load;
+            ((System.ComponentModel.ISupportInitialize)m_ScoresGridView).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
-        private System.Windows.Forms.Label m_LblHomeTitle;
-        private System.Windows.Forms.Button m_BtnGameModeBack;
-        private System.Windows.Forms.DataGridView m_ScoresGridView;
+        private Label m_LblHomeTitle;
+        private Button m_BtnGameModeBack;
+        private DataGridView m_ScoresGridView;
     }
 }

@@ -14,7 +14,7 @@ namespace ProjetForm
 
         public void BtnGameModeBack_Click(object p_Sender, EventArgs p_EventArgs)
         {
-            
+
             Hide();
 
             // Ouverture de la page Home
@@ -25,7 +25,7 @@ namespace ProjetForm
         public async void ScoresForm_Load(object p_Sender, EventArgs p_EventArgs)
         {
             /*Upgrade this initialisaiton*/
-            m_ScoresGridView.Columns.Add("Nom","Nom");
+            m_ScoresGridView.Columns.Add("Nom", "Nom");
             m_ScoresGridView.Columns.Add("Nombre de parties", "Nombre de parties");
             m_ScoresGridView.Columns.Add("Nombre de parties gagnées", "Nombre de parties gagnées");
             m_ScoresGridView.Columns.Add("Temps de jeu moyen", "Temps de jeu moyen");
@@ -35,9 +35,9 @@ namespace ProjetForm
                 foreach (Scoreboard v_Entity in v_Entities)
                 {
                     m_ScoresGridView.Rows.Add(v_Entity.Name, v_Entity.NumberOfGames, v_Entity.NumberOfWins, v_Entity.AverageTime);
-                } 
+                }
             }
-            catch(Exception v_Ex)
+            catch (Exception v_Ex)
             {
                 Console.WriteLine(v_Ex.ToString());
             }

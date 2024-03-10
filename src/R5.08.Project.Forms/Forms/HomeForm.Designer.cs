@@ -28,99 +28,108 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.m_LblHomeTitle = new System.Windows.Forms.Label();
-            this.m_BtnHomePlay = new System.Windows.Forms.Button();
-            this.m_BtnHomeScores = new System.Windows.Forms.Button();
-            this.m_BtnHomeQuit = new System.Windows.Forms.Button();
-            this.SuspendLayout();
+            m_LblHomeTitle = new Label();
+            m_BtnHomePlay = new Button();
+            m_BtnHomeScores = new Button();
+            m_BtnHomeQuit = new Button();
+            SuspendLayout();
             // 
-            // lblHomeTitle
+            // m_LblHomeTitle
             // 
-            this.m_LblHomeTitle.AutoSize = true;
-            this.m_LblHomeTitle.Font = new System.Drawing.Font("Verdana", 30F);
-            this.m_LblHomeTitle.Location = new System.Drawing.Point(264, 84);
-            this.m_LblHomeTitle.Name = "lblHomeTitle";
-            this.m_LblHomeTitle.Size = new System.Drawing.Size(256, 48);
-            this.m_LblHomeTitle.TabIndex = 0;
-            this.m_LblHomeTitle.Text = "Puissance 4";
+            m_LblHomeTitle.AutoSize = true;
+            m_LblHomeTitle.Font = new Font("Verdana", 60F, FontStyle.Regular, GraphicsUnit.Point);
+            m_LblHomeTitle.ForeColor = Color.White;
+            m_LblHomeTitle.Location = new Point(200, 96);
+            m_LblHomeTitle.Margin = new Padding(4, 0, 4, 0);
+            m_LblHomeTitle.Name = "m_LblHomeTitle";
+            m_LblHomeTitle.Size = new Size(514, 97);
+            m_LblHomeTitle.TabIndex = 0;
+            m_LblHomeTitle.Text = "Puissance 4";
             // 
-            // btnHomePlay
+            // m_BtnHomePlay
             // 
-            this.m_BtnHomePlay.AutoSize = true;
-            this.m_BtnHomePlay.BackColor = System.Drawing.Color.LightGreen;
-            this.m_BtnHomePlay.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.m_BtnHomePlay.FlatAppearance.BorderSize = 0;
-            this.m_BtnHomePlay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.m_BtnHomePlay.Font = new System.Drawing.Font("Verdana", 20F);
-            this.m_BtnHomePlay.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.m_BtnHomePlay.Location = new System.Drawing.Point(264, 214);
-            this.m_BtnHomePlay.Name = "btnHomePlay";
-            this.m_BtnHomePlay.Padding = new System.Windows.Forms.Padding(80, 0, 80, 0);
-            this.m_BtnHomePlay.Size = new System.Drawing.Size(257, 42);
-            this.m_BtnHomePlay.TabIndex = 1;
-            this.m_BtnHomePlay.Text = "Jouer";
-            this.m_BtnHomePlay.UseVisualStyleBackColor = false;
-            this.m_BtnHomePlay.Click += new System.EventHandler(this.btnHomePlay_Click);
+            m_BtnHomePlay.AutoSize = true;
+            m_BtnHomePlay.BackColor = Color.FromArgb(24, 188, 156);
+            m_BtnHomePlay.Cursor = Cursors.Hand;
+            m_BtnHomePlay.FlatAppearance.BorderSize = 0;
+            m_BtnHomePlay.FlatStyle = FlatStyle.Flat;
+            m_BtnHomePlay.Font = new Font("Verdana", 20F, FontStyle.Regular, GraphicsUnit.Point);
+            m_BtnHomePlay.ForeColor = Color.White;
+            m_BtnHomePlay.ImageAlign = ContentAlignment.MiddleRight;
+            m_BtnHomePlay.Location = new Point(307, 247);
+            m_BtnHomePlay.Margin = new Padding(4, 3, 4, 3);
+            m_BtnHomePlay.Name = "m_BtnHomePlay";
+            m_BtnHomePlay.Padding = new Padding(93, 0, 93, 0);
+            m_BtnHomePlay.Size = new Size(300, 48);
+            m_BtnHomePlay.TabIndex = 1;
+            m_BtnHomePlay.Text = "Jouer";
+            m_BtnHomePlay.UseVisualStyleBackColor = false;
+            m_BtnHomePlay.Click += btnHomePlay_Click;
             // 
-            // btnHomeScores
+            // m_BtnHomeScores
             // 
-            this.m_BtnHomeScores.AutoSize = true;
-            this.m_BtnHomeScores.BackColor = System.Drawing.Color.LightGray;
-            this.m_BtnHomeScores.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.m_BtnHomeScores.FlatAppearance.BorderSize = 0;
-            this.m_BtnHomeScores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.m_BtnHomeScores.Font = new System.Drawing.Font("Verdana", 15F);
-            this.m_BtnHomeScores.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.m_BtnHomeScores.Location = new System.Drawing.Point(285, 262);
-            this.m_BtnHomeScores.Name = "btnHomeScores";
-            this.m_BtnHomeScores.Padding = new System.Windows.Forms.Padding(50, 0, 50, 0);
-            this.m_BtnHomeScores.Size = new System.Drawing.Size(214, 42);
-            this.m_BtnHomeScores.TabIndex = 2;
-            this.m_BtnHomeScores.Text = "Scores";
-            this.m_BtnHomeScores.UseVisualStyleBackColor = false;
-            this.m_BtnHomeScores.Click += new System.EventHandler(this.btnHomeScores_Click);
+            m_BtnHomeScores.AutoSize = true;
+            m_BtnHomeScores.BackColor = Color.Transparent;
+            m_BtnHomeScores.Cursor = Cursors.Hand;
+            m_BtnHomeScores.FlatAppearance.BorderColor = Color.White;
+            m_BtnHomeScores.FlatStyle = FlatStyle.Flat;
+            m_BtnHomeScores.Font = new Font("Verdana", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            m_BtnHomeScores.ForeColor = Color.White;
+            m_BtnHomeScores.ImageAlign = ContentAlignment.MiddleRight;
+            m_BtnHomeScores.Location = new Point(332, 302);
+            m_BtnHomeScores.Margin = new Padding(4, 3, 4, 3);
+            m_BtnHomeScores.Name = "m_BtnHomeScores";
+            m_BtnHomeScores.Padding = new Padding(58, 0, 58, 0);
+            m_BtnHomeScores.Size = new Size(250, 48);
+            m_BtnHomeScores.TabIndex = 2;
+            m_BtnHomeScores.Text = "Scores";
+            m_BtnHomeScores.UseVisualStyleBackColor = false;
+            m_BtnHomeScores.Click += btnHomeScores_Click;
             // 
-            // btnHomeQuit
+            // m_BtnHomeQuit
             // 
-            this.m_BtnHomeQuit.AutoSize = true;
-            this.m_BtnHomeQuit.BackColor = System.Drawing.Color.LightCoral;
-            this.m_BtnHomeQuit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.m_BtnHomeQuit.FlatAppearance.BorderSize = 0;
-            this.m_BtnHomeQuit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.m_BtnHomeQuit.Font = new System.Drawing.Font("Verdana", 10F);
-            this.m_BtnHomeQuit.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.m_BtnHomeQuit.Location = new System.Drawing.Point(12, 422);
-            this.m_BtnHomeQuit.Name = "btnHomeQuit";
-            this.m_BtnHomeQuit.Padding = new System.Windows.Forms.Padding(30, 0, 30, 0);
-            this.m_BtnHomeQuit.Size = new System.Drawing.Size(127, 27);
-            this.m_BtnHomeQuit.TabIndex = 3;
-            this.m_BtnHomeQuit.Text = "Quitter";
-            this.m_BtnHomeQuit.UseVisualStyleBackColor = false;
-            this.m_BtnHomeQuit.Click += new System.EventHandler(this.btnHomeQuit_Click);
+            m_BtnHomeQuit.AutoSize = true;
+            m_BtnHomeQuit.BackColor = Color.Transparent;
+            m_BtnHomeQuit.Cursor = Cursors.Hand;
+            m_BtnHomeQuit.FlatAppearance.BorderColor = Color.FromArgb(203, 44, 69);
+            m_BtnHomeQuit.FlatStyle = FlatStyle.Flat;
+            m_BtnHomeQuit.Font = new Font("Verdana", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            m_BtnHomeQuit.ForeColor = Color.FromArgb(203, 44, 69);
+            m_BtnHomeQuit.ImageAlign = ContentAlignment.MiddleRight;
+            m_BtnHomeQuit.Location = new Point(14, 487);
+            m_BtnHomeQuit.Margin = new Padding(4, 3, 4, 3);
+            m_BtnHomeQuit.Name = "m_BtnHomeQuit";
+            m_BtnHomeQuit.Padding = new Padding(35, 0, 35, 0);
+            m_BtnHomeQuit.Size = new Size(148, 31);
+            m_BtnHomeQuit.TabIndex = 3;
+            m_BtnHomeQuit.Text = "Quitter";
+            m_BtnHomeQuit.UseVisualStyleBackColor = false;
+            m_BtnHomeQuit.Click += btnHomeQuit_Click;
             // 
             // HomeForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 461);
-            this.Controls.Add(this.m_BtnHomeQuit);
-            this.Controls.Add(this.m_BtnHomeScores);
-            this.Controls.Add(this.m_BtnHomePlay);
-            this.Controls.Add(this.m_LblHomeTitle);
-            this.Name = "HomeForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Puissance 4";
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(16, 27, 39);
+            ClientSize = new Size(915, 532);
+            Controls.Add(m_BtnHomeQuit);
+            Controls.Add(m_BtnHomeScores);
+            Controls.Add(m_BtnHomePlay);
+            Controls.Add(m_LblHomeTitle);
+            Margin = new Padding(4, 3, 4, 3);
+            Name = "HomeForm";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Puissance 4";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
-        public System.Windows.Forms.Label m_LblHomeTitle;
-        public System.Windows.Forms.Button m_BtnHomePlay;
-        public System.Windows.Forms.Button m_BtnHomeScores;
-        public System.Windows.Forms.Button m_BtnHomeQuit;
+        public Label m_LblHomeTitle;
+        public Button m_BtnHomePlay;
+        public Button m_BtnHomeScores;
+        public Button m_BtnHomeQuit;
     }
 }
 

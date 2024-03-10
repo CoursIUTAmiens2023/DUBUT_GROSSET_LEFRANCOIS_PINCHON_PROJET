@@ -185,8 +185,8 @@ namespace R5._08.Project.Forms.Models
         public PictureBox CreatePawn()
         {
             if (m_CurrentPlayer == 0)
-                return CreatePawn(Color.Red);
-            return CreatePawn(Color.Yellow);
+                return CreatePawn(ColorTranslator.FromHtml("#EE6677"));
+            return CreatePawn(ColorTranslator.FromHtml("#18BC9C"));
         }
 
         /// <summary>

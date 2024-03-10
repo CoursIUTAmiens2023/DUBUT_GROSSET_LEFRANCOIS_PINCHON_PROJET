@@ -53,7 +53,7 @@ namespace ProjetForm
                 v_Col = Bot.HardModePlay(m_Puissance4);
 
             PictureBox v_AiPawn = m_Puissance4.CreatePawn();
-            
+
             int v_Row = m_Puissance4.PlacePawn(v_Col);
             AddPawnOnBoard(v_AiPawn, v_Col, v_Row);
         }
@@ -70,8 +70,8 @@ namespace ProjetForm
             // Desactivation des boutons
             List<Button> v_BtnColList = new List<Button> { m_BtnCol1, m_BtnCol2, m_BtnCol3, m_BtnCol4, m_BtnCol5, m_BtnCol6, m_BtnCol7 };
 
-            v_BtnColList.ForEach((btn) => btn.Enabled = false);
-            m_BtnPlateauAbandon.Enabled = false;
+            v_BtnColList.ForEach((btn) => btn.Visible = false);
+            m_BtnPlateauAbandon.Visible = false;
 
             if (p_Draw)
             {
@@ -90,31 +90,31 @@ namespace ProjetForm
             int v_ColumnPlayed;
             switch (((Button)p_Sender).Name.ToString())
             {
-                case "btnCol1":
+                case "m_BtnCol1":
                     v_ColumnPlayed = 1;
                     break;
 
-                case "btnCol2":
+                case "m_BtnCol2":
                     v_ColumnPlayed = 2;
                     break;
 
-                case "btnCol3":
+                case "m_BtnCol3":
                     v_ColumnPlayed = 3;
                     break;
 
-                case "btnCol4":
+                case "m_BtnCol4":
                     v_ColumnPlayed = 4;
                     break;
 
-                case "btnCol5":
+                case "m_BtnCol5":
                     v_ColumnPlayed = 5;
                     break;
 
-                case "btnCol6":
+                case "m_BtnCol6":
                     v_ColumnPlayed = 6;
                     break;
 
-                case "btnCol7":
+                case "m_BtnCol7":
                     v_ColumnPlayed = 7;
                     break;
 
@@ -192,20 +192,20 @@ namespace ProjetForm
                 if (v_Scoreboard != null)
                 {
                     // If exist update player data
-                    v_Scoreboard.AverageTime = 
+                    v_Scoreboard.AverageTime =
                         (v_Scoreboard.AverageTime * v_Scoreboard.NumberOfGames + m_ElapsedTime) / (v_Scoreboard.NumberOfGames + 1);
-                    
+
                     v_Scoreboard.NumberOfGames++;
                 }
-                else 
+                else
                 {
                     // Create new player data
-                    v_Scoreboard = new() 
-                    { 
+                    v_Scoreboard = new()
+                    {
                         Name = p_Name,
                         NumberOfGames = 1,
                         AverageTime = m_ElapsedTime,
-                        NumberOfWins = 0 
+                        NumberOfWins = 0
                     };
                 }
 
