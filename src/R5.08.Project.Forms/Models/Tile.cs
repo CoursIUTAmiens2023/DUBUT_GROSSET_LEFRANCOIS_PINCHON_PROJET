@@ -10,6 +10,10 @@
         public int m_Y;
         public int m_GridId;
 
+        // Déplacements dans les axes x et y inclus dans les tableaux (Voisinage)
+        int[] v_Dx = { -1, 0, 1, -1, 1, -1, 0, 1 };
+        int[] v_Dy = { -1, -1, -1, 0, 0, 1, 1, 1 };
+
         public Tile(int p_Player, int p_X, int p_Y, int p_GridId)
         {
             m_Player = p_Player;
@@ -187,10 +191,6 @@
         public List<Tile> GetNeighbors()
         {
             List<Tile> v_Neighbors = new();
-
-            // Déplacements dans les axes x et y inclus dans les tableaux
-            int[] v_Dx = { -1, 0, 1, -1, 1, -1, 0, 1 };
-            int[] v_Dy = { -1, -1, -1, 0, 0, 1, 1, 1 };
 
             // Vérifiez chaque voisin potentiel
             for (int v_Index = 0; v_Index < 8; v_Index++)

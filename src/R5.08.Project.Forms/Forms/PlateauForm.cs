@@ -262,6 +262,7 @@ namespace ProjetForm
             newPuissance4.m_Joueur1 = m_Puissance4.m_Joueur1;
             newPuissance4.m_Joueur2 = m_Puissance4.m_Joueur2;
             newPuissance4.m_difficulty = m_Puissance4.m_difficulty;
+            newPuissance4.m_IaStart = m_Puissance4.m_IaStart;
 
             PlateauForm v_PlateauForm = new PlateauForm(newPuissance4, m_UnitOfWork);
             v_PlateauForm.ShowDialog();

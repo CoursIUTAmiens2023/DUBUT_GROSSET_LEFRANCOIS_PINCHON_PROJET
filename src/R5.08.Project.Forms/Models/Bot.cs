@@ -124,7 +124,7 @@
                 v_WinrateForAi = new List<float>();
 
                 // Générer des grids aléatoires pour récupérer le coups avec la meillieur proba de win
-                for (int grid_number = 0; grid_number < 300; grid_number++)
+                for (int grid_number = 0; grid_number < 80; grid_number++)
                 {
                     Puissance4 tmp_grid = (Puissance4)v_Puissance4.Clone();
                     tmp_grid.PlacePawn(MainColToTry);
@@ -133,13 +133,22 @@
                     while (v_AvailablesColumnsTmpGrid.Count > 0 && tmp_grid.m_Winner == -1)
                     {
                         double v_TotalScore = 0;
+                        double v_MinScore = double.PositiveInfinity;
                         List<double> v_AllScore = new List<double>();
                         foreach (int v_ColToPlay in v_AvailablesColumnsTmpGrid)
                         {
-                            double v_Score = tmp_grid.GetScoreCol(v_ColToPlay);
+                            double v_Score = tmp_grid.GetScoreCol(v_ColToPlay, true);
                             v_AllScore.Add(v_Score);
-                            v_TotalScore += v_Score;
+
+                            if (v_Score < v_MinScore) { v_MinScore = v_Score;}
                         }
+
+                        for (int v_IndexScore = 0; v_IndexScore < v_AllScore.Count; v_IndexScore++)
+                        {
+                            v_AllScore[v_IndexScore] += Math.Abs(v_MinScore);
+                            v_TotalScore += v_AllScore[v_IndexScore];
+                        }
+
 
                         double v_ChoosenScore = rd.Next(Convert.ToInt32(v_TotalScore * 2)) / 2.0;
 
@@ -151,6 +160,8 @@
                             v_ColIndex++;
                             v_LastScore += v_ColScore;
                         }
+
+                        if (v_ColIndex >= v_AvailablesColumnsTmpGrid.Count) { v_ColIndex--; }
                         int v_Col = v_AvailablesColumnsTmpGrid[v_ColIndex];
 
                         tmp_grid.PlacePawn(v_Col);
@@ -162,6 +173,7 @@
                     if (tmp_grid.m_Winner != -1)
                     {
                         string v_PseudoPlayerWinner = tmp_grid.GetWinnerName();
+                        string tmp = tmp_grid.m_Grid.PrintString();
                         if (v_PseudoPlayerWinner == "IA Difficile")
                         {
                             if (tmp_grid.m_NbPawn - v_Puissance4.m_NbPawn == 1)
@@ -170,25 +182,25 @@
                             }
                             else
                             {
-                                v_WinrateForAi.Add(200 / tmp_grid.m_NbPawn);
+                                v_WinrateForAi.Add(250 / (tmp_grid.m_NbPawn - v_Puissance4.m_NbPawn));
                             }
                         }
                         else
                         {
                             if (tmp_grid.m_NbPawn - v_Puissance4.m_NbPawn == 2)
                             {
-                                v_WinrateForAi.Add(-8000);
+                                v_WinrateForAi.Add(-9000);
                             }
                             else
                             {
-                                v_WinrateForAi.Add(-50 + tmp_grid.m_NbPawn);
+                                v_WinrateForAi.Add(-150 + (tmp_grid.m_NbPawn - v_Puissance4.m_NbPawn));
                             }
                         }
                     }
                     else
                     {
                         // Égalitée
-                        v_WinrateForAi.Add(20);
+                        v_WinrateForAi.Add(-20);
                     }
 
                     Grid.m_AllGrids.Remove(tmp_grid.m_Grid.m_GridId);
